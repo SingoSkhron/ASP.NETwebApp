@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\UniversitySchedule",
+    "\\UniversitySchedule\\Application",
+    "\\UniversitySchedule\\Domain",
+    "\\UniversitySchedule\\Domain\\Entities",
+    "\\UniversitySchedule\\Infrastructure"
+  ],
+  "SelectedNode": "\\UniversitySchedule\\Domain\\Entities\\Schedule.cs",
+  "PreviewInSolutionExplorer": false
+}

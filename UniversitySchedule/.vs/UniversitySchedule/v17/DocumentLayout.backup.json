@@ -1,0 +1,221 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\lessonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\lessonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\scheduleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\scheduleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\ischeduleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\ischeduleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\ilessonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\ilessonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\igroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\igroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\dtos\\lessondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\dtos\\lessondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\dtos\\groupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\dtos\\groupdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\dtos\\scheduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\dtos\\scheduledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LessonService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\LessonService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\LessonService.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\LessonService.cs",
+              "RelativeToolTip": "Application\\Services\\LessonService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T12:50:30.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GroupService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\GroupService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\GroupService.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\GroupService.cs",
+              "RelativeToolTip": "Application\\Services\\GroupService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T12:47:27.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\UserService.cs",
+              "RelativeToolTip": "Application\\Services\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T12:17:22.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ScheduleService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\ScheduleService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\ScheduleService.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\ScheduleService.cs",
+              "RelativeToolTip": "Application\\Services\\ScheduleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T11:57:32.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ILessonService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\ILessonService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\ILessonService.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\ILessonService.cs",
+              "RelativeToolTip": "Application\\Services\\ILessonService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T11:56:24.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IScheduleService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IScheduleService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\IScheduleService.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IScheduleService.cs",
+              "RelativeToolTip": "Application\\Services\\IScheduleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T11:55:00.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IGroupService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IGroupService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\IGroupService.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IGroupService.cs",
+              "RelativeToolTip": "Application\\Services\\IGroupService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T11:53:42.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IUserService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\IUserService.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IUserService.cs",
+              "RelativeToolTip": "Application\\Services\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T11:51:33.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LessonDTO.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\DTOs\\LessonDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\LessonDTO.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\DTOs\\LessonDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\LessonDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T11:43:34.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ScheduleDTO.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\DTOs\\ScheduleDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\ScheduleDTO.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\DTOs\\ScheduleDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\ScheduleDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T11:43:19.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GroupDTO.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\DTOs\\GroupDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\GroupDTO.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\DTOs\\GroupDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\GroupDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T11:43:02.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserDTO.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\DTOs\\UserDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\UserDTO.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\DTOs\\UserDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\UserDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T11:42:43.441Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
