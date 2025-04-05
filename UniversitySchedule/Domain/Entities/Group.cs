@@ -8,9 +8,10 @@ namespace Domain.Entities
 {
     public class Group
     {
+        public int Id { get; set; }
         public string GroupName { get; set; }
-        public string HigherEducationLevel { get; set; }
-        public string FormOfEducation { get; set; }
-        public int YearOfAdmission { get; set; }
+        public string EducationLevel { get; set; }
+        public string EducationForm { get; set; }
+        public int AdmissionYear { get; set; }
     }
 }

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "l1oF2AG78qM=",
+  "dgSpecHash": "L1pU9Myrn2g=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Артём\\source\\repos\\UniversitySchedule\\Infrastructure\\Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Артём\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Infrastructure\\Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Артём\\.nuget\\packages\\bogus\\35.6.2\\bogus.35.6.2.nupkg.sha512"
+  ],
   "logs": []
 }
