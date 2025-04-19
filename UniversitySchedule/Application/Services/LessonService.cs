@@ -1,21 +1,16 @@
 ﻿using Application.DTOs;
 using Infrastructure.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
     public class LessonService : ILessonService
     {
-        private ILessonRepository lessonRepository;
+        private ILessonRepository _lessonRepository;
         public LessonService(ILessonRepository lessonRepository)
         {
-            this.lessonRepository = lessonRepository;
+            _lessonRepository = lessonRepository;
         }
-        public Task Add(LessonDto lesson)
+        public Task<int> Add(LessonDto lesson)
         {
             throw new NotImplementedException();
         }
@@ -25,7 +20,7 @@ namespace Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<LessonDto>> GetAll()
+        public Task<IEnumerable<LessonDto>> GetAll()
         {
             throw new NotImplementedException();
         }

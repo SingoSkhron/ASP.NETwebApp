@@ -3,3 +3,24 @@
 ################################################################################
 
 /UniversitySchedule/.vs/UniversitySchedule/FileContentIndex
+# IDE и конфигурационные файлы
+/.vs/
+/.idea/
+/.vscode/
+
+# Общие для всех проектов временные файлы
+**/bin/
+**/obj/
+**/logs/
+**/secrets.json
+
+# Debug-версии
+**/Debug/
+
+# Temporary files
+*.user
+*.suo
+*.log
+*.cache
+*.xml
+*.ncrunchsolution

@@ -1,24 +1,22 @@
 ﻿using Bogus;
 using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Domain.Enums;
 
 namespace Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private List<User> users = new List<User>();
+        private readonly IEnumerable<User> users = new List<User>();
         public UserRepository()
         {
+            users = new List<User>();
             PopulateTestData();
         }
-        public Task Create(User user)
+        public Task<int> Create(User user)
         {
-            users.Add(user);
-            return Task.CompletedTask;
+            user.Id = GetId();
+            users.ToList().Add(user);
+            return Task.FromResult(user.Id);
         }
 
         public Task<bool> Delete(int id)
@@ -27,24 +25,24 @@ namespace Infrastructure.Repositories
             {
                 return Task.FromResult(false);
             }
-            users.RemoveAll(x => x.Id == id);
+            users.ToList().RemoveAll(x => x.Id == id);
             return Task.FromResult(true);
         }
 
-        public Task<List<User>> ReadAll()
+        public Task<IEnumerable<User>> ReadAll()
         {
             return Task.FromResult(users);
         }
 
         public Task<User?> ReadById(int id)
         {
-            var user = users.Find(x => x.Id == id);
+            var user = users.ToList().Find(x => x.Id == id);
             return Task.FromResult(user);
         }
 
         public Task<bool> Update(User user)
         {
-            var userToUpdate = users.Find(x => x.Id == user.Id);
+            var userToUpdate = users.ToList().Find(x => x.Id == user.Id);
             if (userToUpdate == null)
             {
                 return Task.FromResult(false);
@@ -59,17 +57,31 @@ namespace Infrastructure.Repositories
         private void PopulateTestData()
         {
             var faker = new Faker();
-            users = new List<User>();
             for (int i = 0; i < 5; i++)
             {
                 var user = new User();
                 user.Id = i + 1;
                 user.FirstName = faker.Person.FirstName;
                 user.LastName = faker.Person.LastName;
-                user.Type = "Студент";
+                user.Type = UserTypeEnum.Student;
                 user.GroupId = i + 1;
                 user.AdmissionYear = 2020 + i;
-                users.Add(user);
+                users.ToList().Add(user);
+            }
+        }
+        private int GetId()
+        {
+            int id = 1;
+            while (true)
+            {
+                if (users.ToList().Find(x => x.Id == id) == null)
+                {
+                    return id;
+                }
+                else
+                {
+                    id++;
+                }
             }
         }
     }

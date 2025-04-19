@@ -1,21 +1,16 @@
 ﻿using Application.DTOs;
 using Infrastructure.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
     public class UserService : IUserService
     {
-        private IUserRepository userRepository;
+        private IUserRepository _userRepository;
         public UserService(IUserRepository userRepository)
         {
-            this.userRepository = userRepository;
+            _userRepository = userRepository;
         }
-        public Task Add(UserDto user)
+        public Task<int> Add(UserDto user)
         {
             throw new NotImplementedException();
         }
@@ -25,7 +20,7 @@ namespace Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<UserDto>> GetAll()
+        public Task<IEnumerable<UserDto>> GetAll()
         {
             throw new NotImplementedException();
         }

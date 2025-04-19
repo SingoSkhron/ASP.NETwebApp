@@ -1,24 +1,21 @@
-﻿using Bogus;
-using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Entities;
+using Domain.Enums;
 
 namespace Infrastructure.Repositories
 {
     public class GroupRepository : IGroupRepository
     {
-        private List<Group> groups = new List<Group>();
+        private readonly IEnumerable<Group> groups = new List<Group>();
         public GroupRepository()
         {
+            groups = new List<Group>();
             PopulateTestData();
         }
-        public Task Create(Group group)
+        public Task<int> Create(Group group)
         {
-            groups.Add(group);
-            return Task.CompletedTask;
+            group.Id = GetId();
+            groups.ToList().Add(group);
+            return Task.FromResult(group.Id);
         }
 
         public Task<bool> Delete(int id)
@@ -27,24 +24,24 @@ namespace Infrastructure.Repositories
             {
                 return Task.FromResult(false);
             }
-            groups.RemoveAll(x => x.Id == id);
+            groups.ToList().RemoveAll(x => x.Id == id);
             return Task.FromResult(true);
         }
 
-        public Task<List<Group>> ReadAll()
+        public Task<IEnumerable<Group>> ReadAll()
         {
             return Task.FromResult(groups);
         }
 
         public Task<Group?> ReadById(int id)
         {
-            var group = groups.Find(x => x.Id == id);
+            var group = groups.ToList().Find(x => x.Id == id);
             return Task.FromResult(group);
         }
 
         public Task<bool> Update(Group group)
         {
-            var groupToUpdate = groups.Find(x => x.Id == group.Id);
+            var groupToUpdate = groups.ToList().Find(x => x.Id == group.Id);
             if (groupToUpdate == null)
             {
                 return Task.FromResult(false);
@@ -57,17 +54,30 @@ namespace Infrastructure.Repositories
         }
         private void PopulateTestData()
         {
-            var faker = new Faker();
-            groups = new List<Group>();
             for (int i = 0; i < 5; i++)
             {
                 var group = new Group();
                 group.Id = i + 1;
                 group.GroupName = $"КБ-{i + 1}1СО";
-                group.EducationForm = "Очная";
-                group.EducationLevel = "Специалитет";
+                group.EducationForm = EducationFormEnum.FullTime;
+                group.EducationLevel = EducationLevelEnum.Specialty;
                 group.AdmissionYear = 2020 + i;
-                groups.Add(group);
+                groups.ToList().Add(group);
+            }
+        }
+        private int GetId()
+        {
+            int id = 1;
+            while (true)
+            {
+                if (groups.ToList().Find(x => x.Id == id) == null)
+                {
+                    return id;
+                }
+                else
+                {
+                    id++;
+                }
             }
         }
     }

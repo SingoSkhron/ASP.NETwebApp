@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.DTOs
+﻿namespace Application.DTOs
 {
     public class AcademicBuildingDto
     {
         public int Id { get; set; }
-        public TimeOnly LessonsStartTime { get; set; }
         public string Address { get; set; }
         public string Name { get; set; }
-        public TimeOnly BigBreakDuration { get; set; }
     }
 }

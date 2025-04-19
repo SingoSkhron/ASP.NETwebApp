@@ -1,25 +1,20 @@
-﻿using Bogus;
-using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using Domain.Entities;
 
 namespace Infrastructure.Repositories
 {
     public class AuditoriumRepository : IAuditoriumRepository
     {
-        private List<Auditorium> auditoriums = new List<Auditorium>();
+        private readonly IEnumerable<Auditorium> auditoriums = new List<Auditorium>();
         public AuditoriumRepository()
         {
+            auditoriums = new List<Auditorium>();
             PopulateTestData();
         }
-        public Task Create(Auditorium auditorium)
+        public Task<int> Create(Auditorium auditorium)
         {
-            auditoriums.Add(auditorium);
-            return Task.CompletedTask;
+            auditorium.Id = GetId();
+            auditoriums.ToList().Add(auditorium);
+            return Task.FromResult(auditorium.Id);
         }
 
         public Task<bool> Delete(int id)
@@ -28,24 +23,24 @@ namespace Infrastructure.Repositories
             {
                 return Task.FromResult(false);
             }
-            auditoriums.RemoveAll(x => x.Id == id);
+            auditoriums.ToList().RemoveAll(x => x.Id == id);
             return Task.FromResult(true);
         }
 
-        public Task<List<Auditorium>> ReadAll()
+        public Task<IEnumerable<Auditorium>> ReadAll()
         {
             return Task.FromResult(auditoriums);
         }
 
         public Task<Auditorium?> ReadById(int id)
         {
-            var auditorium = auditoriums.Find(x => x.Id == id);
+            var auditorium = auditoriums.ToList().Find(x => x.Id == id);
             return Task.FromResult(auditorium);
         }
 
         public Task<bool> Update(Auditorium auditorium)
         {
-            var auditoriumToUpdate = auditoriums.Find(x => x.Id == auditorium.Id);
+            var auditoriumToUpdate = auditoriums.ToList().Find(x => x.Id == auditorium.Id);
             if (auditoriumToUpdate == null)
             {
                 return Task.FromResult(false);
@@ -57,8 +52,6 @@ namespace Infrastructure.Repositories
         }
         private void PopulateTestData()
         {
-            var faker = new Faker();
-            auditoriums = new List<Auditorium>();
             for (int i = 0; i < 5; i++)
             {
                 var auditorium = new Auditorium();
@@ -66,7 +59,22 @@ namespace Infrastructure.Repositories
                 auditorium.Name = $"31{i + 1}";
                 auditorium.FloorNumber = 3;
                 auditorium.BuildingId = i + 1;
-                auditoriums.Add(auditorium);
+                auditoriums.ToList().Add(auditorium);
+            }
+        }
+        private int GetId()
+        {
+            int id = 1;
+            while (true)
+            {
+                if (auditoriums.ToList().Find(x => x.Id == id) == null)
+                {
+                    return id;
+                }
+                else
+                {
+                    id++;
+                }
             }
         }
     }

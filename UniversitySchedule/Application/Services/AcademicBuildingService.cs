@@ -1,21 +1,16 @@
 ﻿using Application.DTOs;
 using Infrastructure.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
     public class AcademicBuildingService : IAcademicBuildingService
     {
-        private IAcademicBuildingRepository academicBuildingRepository;
+        private readonly IAcademicBuildingRepository _academicBuildingRepository;
         public AcademicBuildingService(IAcademicBuildingRepository academicBuildingRepository)
         {
-            this.academicBuildingRepository = academicBuildingRepository;
+            _academicBuildingRepository = academicBuildingRepository;
         }
-        public Task Add(AcademicBuildingDto academicBuilding)
+        public Task<int> Add(AcademicBuildingDto academicBuilding)
         {
             throw new NotImplementedException();
         }
@@ -25,7 +20,7 @@ namespace Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<AcademicBuildingDto>> GetAll()
+        public Task<IEnumerable<AcademicBuildingDto>> GetAll()
         {
             throw new NotImplementedException();
         }

@@ -1,21 +1,16 @@
 ﻿using Application.DTOs;
 using Infrastructure.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
     public class GroupService : IGroupService
     {
-        private IGroupRepository groupRepository;
+        private IGroupRepository _groupRepository;
         public GroupService(IGroupRepository groupRepository)
         {
-            this.groupRepository = groupRepository;
+            _groupRepository = groupRepository;
         }
-        public Task Add(GroupDto group)
+        public Task<int> Add(GroupDto group)
         {
             throw new NotImplementedException();
         }
@@ -25,7 +20,7 @@ namespace Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<GroupDto>> GetAll()
+        public Task<IEnumerable<GroupDto>> GetAll()
         {
             throw new NotImplementedException();
         }

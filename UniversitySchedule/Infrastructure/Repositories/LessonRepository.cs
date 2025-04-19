@@ -1,24 +1,22 @@
 ﻿using Bogus;
 using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Domain.Enums;
 
 namespace Infrastructure.Repositories
 {
     public class LessonRepository : ILessonRepository
     {
-        private List<Lesson> lessons = new List<Lesson>();
+        private readonly IEnumerable<Lesson> lessons = new List<Lesson>();
         public LessonRepository()
         {
+            lessons = new List<Lesson>();
             PopulateTestData();
         }
-        public Task Create(Lesson lesson)
+        public Task<int> Create(Lesson lesson)
         {
-            lessons.Add(lesson);
-            return Task.CompletedTask;
+            lesson.Id = GetId();
+            lessons.ToList().Add(lesson);
+            return Task.FromResult(lesson.Id);
         }
 
         public Task<bool> Delete(int id)
@@ -27,34 +25,30 @@ namespace Infrastructure.Repositories
             {
                 return Task.FromResult(false);
             }
-            lessons.RemoveAll(x => x.Id == id);
+            lessons.ToList().RemoveAll(x => x.Id == id);
             return Task.FromResult(true);
         }
 
-        public Task<List<Lesson>> ReadAll()
+        public Task<IEnumerable<Lesson>> ReadAll()
         {
             return Task.FromResult(lessons);
         }
 
         public Task<Lesson?> ReadById(int id)
         {
-            var lesson = lessons.Find(x => x.Id == id);
+            var lesson = lessons.ToList().Find(x => x.Id == id);
             return Task.FromResult(lesson);
         }
 
         public Task<bool> Update(Lesson lesson)
         {
-            var lessonToUpdate = lessons.Find(x => x.Id == lesson.Id);
+            var lessonToUpdate = lessons.ToList().Find(x => x.Id == lesson.Id);
             if (lessonToUpdate == null)
             {
                 return Task.FromResult(false);
             }
-            lessonToUpdate.OrderNumber = lesson.OrderNumber;
             lessonToUpdate.Name = lesson.Name;
             lessonToUpdate.LessonType = lesson.LessonType;
-            lessonToUpdate.DayOfTheWeek = lesson.DayOfTheWeek;
-            lessonToUpdate.StartTime = lesson.StartTime;
-            lessonToUpdate.EndTime = lesson.EndTime;
             lessonToUpdate.AuditoriumId = lesson.AuditoriumId;
             lessonToUpdate.ProfessorId = lesson.ProfessorId;
             lessonToUpdate.GroupId = lesson.GroupId;
@@ -64,22 +58,32 @@ namespace Infrastructure.Repositories
         private void PopulateTestData()
         {
             var faker = new Faker();
-            lessons = new List<Lesson>();
             for (int i = 0; i < 5; i++)
             {
                 var lesson = new Lesson();
                 lesson.Id = i + 1;
-                lesson.OrderNumber = i + 1;
                 lesson.Name = "Математический анализ";
-                lesson.LessonType = "Лекция";
-                lesson.DayOfTheWeek = "пн";
-                lesson.StartTime = new TimeOnly(9, 0);
-                lesson.EndTime = new TimeOnly(10, 35);
+                lesson.LessonType = LessonTypeEnum.Lecture;
                 lesson.AuditoriumId = i + 1;
                 lesson.ProfessorId = i + 1;
                 lesson.GroupId = i + 1;
                 lesson.BuildingId = i + 1;
-                lessons.Add(lesson);
+                lessons.ToList().Add(lesson);
+            }
+        }
+        private int GetId()
+        {
+            int id = 1;
+            while (true)
+            {
+                if (lessons.ToList().Find(x => x.Id == id) == null)
+                {
+                    return id;
+                }
+                else
+                {
+                    id++;
+                }
             }
         }
     }
