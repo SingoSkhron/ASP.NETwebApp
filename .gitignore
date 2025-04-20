@@ -4,9 +4,9 @@
 
 /UniversitySchedule/.vs/UniversitySchedule/FileContentIndex
 # IDE и конфигурационные файлы
-/.vs/
-/.idea/
-/.vscode/
+/UniversitySchedule/.vs/
+/UniversitySchedule/.idea/
+/UniversitySchedule/.vscode/
 
 # Общие для всех проектов временные файлы
 **/bin/
