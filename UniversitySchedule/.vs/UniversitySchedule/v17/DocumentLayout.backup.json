@@ -3,72 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\ischeduleitemsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\ischeduleitemsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{211B2879-E8DF-4FA3-B7C8-6CD4B32C58AB}|API\\API.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\api\\controllers\\scheduleitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{211B2879-E8DF-4FA3-B7C8-6CD4B32C58AB}|API\\API.csproj|solutionrelative:api\\controllers\\scheduleitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\iacademicbuildingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\iacademicbuildingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{211B2879-E8DF-4FA3-B7C8-6CD4B32C58AB}|API\\API.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\api\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{211B2879-E8DF-4FA3-B7C8-6CD4B32C58AB}|API\\API.csproj|solutionrelative:api\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{211B2879-E8DF-4FA3-B7C8-6CD4B32C58AB}|API\\API.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\api\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{211B2879-E8DF-4FA3-B7C8-6CD4B32C58AB}|API\\API.csproj|solutionrelative:api\\controllers\\groupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\ilessonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\ilessonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{211B2879-E8DF-4FA3-B7C8-6CD4B32C58AB}|API\\API.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\api\\controllers\\auditoriumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{211B2879-E8DF-4FA3-B7C8-6CD4B32C58AB}|API\\API.csproj|solutionrelative:api\\controllers\\auditoriumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\igroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\igroupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{211B2879-E8DF-4FA3-B7C8-6CD4B32C58AB}|API\\API.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\api\\controllers\\academicbuildingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{211B2879-E8DF-4FA3-B7C8-6CD4B32C58AB}|API\\API.csproj|solutionrelative:api\\controllers\\academicbuildingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\iauditoriumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\iauditoriumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{211B2879-E8DF-4FA3-B7C8-6CD4B32C58AB}|API\\API.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{211B2879-E8DF-4FA3-B7C8-6CD4B32C58AB}|API\\API.csproj|solutionrelative:api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\academicbuildingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\academicbuildingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1921C07-259F-43DF-B7F1-2FE6355096BE}|Domain\\Domain.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\domain\\entities\\scheduleitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1921C07-259F-43DF-B7F1-2FE6355096BE}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\scheduleitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1921C07-259F-43DF-B7F1-2FE6355096BE}|Domain\\Domain.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1921C07-259F-43DF-B7F1-2FE6355096BE}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1921C07-259F-43DF-B7F1-2FE6355096BE}|Domain\\Domain.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\domain\\entities\\lesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1921C07-259F-43DF-B7F1-2FE6355096BE}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\lesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1921C07-259F-43DF-B7F1-2FE6355096BE}|Domain\\Domain.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\domain\\entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1921C07-259F-43DF-B7F1-2FE6355096BE}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1921C07-259F-43DF-B7F1-2FE6355096BE}|Domain\\Domain.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\domain\\entities\\auditorium.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1921C07-259F-43DF-B7F1-2FE6355096BE}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\auditorium.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1921C07-259F-43DF-B7F1-2FE6355096BE}|Domain\\Domain.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\domain\\entities\\academicbuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1921C07-259F-43DF-B7F1-2FE6355096BE}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\academicbuilding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\auditoriumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\auditoriumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\services\\lessonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\services\\lessonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|c:\\users\\\u0430\u0440\u0442\u0451\u043C\\desktop\\universityschedulegit\\universityschedule\\application\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26448D8D-F44D-4468-833D-3E6B2619230A}|Application\\Application.csproj|solutionrelative:application\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -83,218 +43,92 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IScheduleItemsService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IScheduleItemsService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\IScheduleItemsService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IScheduleItemsService.cs",
-              "RelativeToolTip": "Application\\Services\\IScheduleItemsService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
+              "Title": "ScheduleItemsController.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\API\\Controllers\\ScheduleItemsController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\ScheduleItemsController.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\API\\Controllers\\ScheduleItemsController.cs",
+              "RelativeToolTip": "API\\Controllers\\ScheduleItemsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-19T01:35:39.347Z",
+              "WhenOpened": "2025-04-20T19:09:04.98Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IAcademicBuildingService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IAcademicBuildingService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\IAcademicBuildingService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IAcademicBuildingService.cs",
-              "RelativeToolTip": "Application\\Services\\IAcademicBuildingService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Title": "LessonController.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\API\\Controllers\\LessonController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\LessonController.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\API\\Controllers\\LessonController.cs",
+              "RelativeToolTip": "API\\Controllers\\LessonController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T02:54:29.658Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ScheduleItems.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Domain\\Entities\\ScheduleItems.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\ScheduleItems.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Domain\\Entities\\ScheduleItems.cs",
-              "RelativeToolTip": "Domain\\Entities\\ScheduleItems.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T23:58:34.58Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AcademicBuildingService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\AcademicBuildingService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\AcademicBuildingService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\AcademicBuildingService.cs",
-              "RelativeToolTip": "Application\\Services\\AcademicBuildingService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T03:07:30.308Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AuditoriumService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\AuditoriumService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\AuditoriumService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\AuditoriumService.cs",
-              "RelativeToolTip": "Application\\Services\\AuditoriumService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T03:07:08.952Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "GroupService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\GroupService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\GroupService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\GroupService.cs",
-              "RelativeToolTip": "Application\\Services\\GroupService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T03:06:31.444Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "LessonService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\LessonService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\LessonService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\LessonService.cs",
-              "RelativeToolTip": "Application\\Services\\LessonService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T03:03:40.111Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\UserService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\UserService.cs",
-              "RelativeToolTip": "Application\\Services\\UserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T03:00:13.129Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IAuditoriumService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IAuditoriumService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\IAuditoriumService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IAuditoriumService.cs",
-              "RelativeToolTip": "Application\\Services\\IAuditoriumService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T02:53:52.438Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ILessonService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\ILessonService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\ILessonService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\ILessonService.cs",
-              "RelativeToolTip": "Application\\Services\\ILessonService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T02:53:09.104Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IGroupService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IGroupService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\IGroupService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IGroupService.cs",
-              "RelativeToolTip": "Application\\Services\\IGroupService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T02:51:41.784Z",
+              "WhenOpened": "2025-04-20T19:08:38.687Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IUserService.cs",
-              "RelativeDocumentMoniker": "Application\\Services\\IUserService.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Services\\IUserService.cs",
-              "RelativeToolTip": "Application\\Services\\IUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
+              "Title": "GroupController.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\API\\Controllers\\GroupController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\GroupController.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\API\\Controllers\\GroupController.cs",
+              "RelativeToolTip": "API\\Controllers\\GroupController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowDEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T02:49:57.48Z",
+              "WhenOpened": "2025-04-20T19:07:50.078Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Auditorium.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Domain\\Entities\\Auditorium.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\Auditorium.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Domain\\Entities\\Auditorium.cs",
-              "RelativeToolTip": "Domain\\Entities\\Auditorium.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "AuditoriumController.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\API\\Controllers\\AuditoriumController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\AuditoriumController.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\API\\Controllers\\AuditoriumController.cs",
+              "RelativeToolTip": "API\\Controllers\\AuditoriumController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T11:46:30.231Z",
+              "WhenOpened": "2025-04-20T19:06:28.04Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AcademicBuilding.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Domain\\Entities\\AcademicBuilding.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\AcademicBuilding.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Domain\\Entities\\AcademicBuilding.cs",
-              "RelativeToolTip": "Domain\\Entities\\AcademicBuilding.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "AcademicBuildingController.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\API\\Controllers\\AcademicBuildingController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\AcademicBuildingController.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\API\\Controllers\\AcademicBuildingController.cs",
+              "RelativeToolTip": "API\\Controllers\\AcademicBuildingController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAADQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T11:40:28.306Z",
+              "WhenOpened": "2025-04-20T19:04:54.509Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Group.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Domain\\Entities\\Group.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\Group.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Domain\\Entities\\Group.cs",
-              "RelativeToolTip": "Domain\\Entities\\Group.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA+AAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\API\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\API\\Controllers\\UserController.cs",
+              "RelativeToolTip": "API\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T02:24:44.436Z",
+              "WhenOpened": "2025-04-20T18:14:53.333Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Lesson.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Domain\\Entities\\Lesson.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\Lesson.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Domain\\Entities\\Lesson.cs",
-              "RelativeToolTip": "Domain\\Entities\\Lesson.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAvAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Mappings\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Application\\Mappings\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Application\\Mappings\\MappingProfile.cs",
+              "RelativeToolTip": "Application\\Mappings\\MappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T02:24:43.473Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Domain\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\User.cs",
-              "ToolTip": "C:\\Users\\\u0410\u0440\u0442\u0451\u043C\\Desktop\\UniversityScheduleGit\\UniversitySchedule\\Domain\\Entities\\User.cs",
-              "RelativeToolTip": "Domain\\Entities\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T01:44:12.77Z",
+              "WhenOpened": "2025-04-20T15:24:03.267Z",
               "EditorCaption": ""
             }
           ]

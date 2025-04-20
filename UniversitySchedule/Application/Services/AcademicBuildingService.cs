@@ -1,4 +1,6 @@
 ﻿using Application.DTOs;
+using AutoMapper;
+using Domain.Entities;
 using Infrastructure.Repositories;
 
 namespace Application.Services
@@ -6,33 +8,55 @@ namespace Application.Services
     public class AcademicBuildingService : IAcademicBuildingService
     {
         private readonly IAcademicBuildingRepository _academicBuildingRepository;
-        public AcademicBuildingService(IAcademicBuildingRepository academicBuildingRepository)
+        private readonly IMapper _mapper;
+        public AcademicBuildingService(IAcademicBuildingRepository academicBuildingRepository, IMapper mapper)
         {
             _academicBuildingRepository = academicBuildingRepository;
+            _mapper = mapper;
         }
-        public Task<int> Add(AcademicBuildingDto academicBuilding)
+        public async Task<int> Add(AcademicBuildingDto academicBuilding)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<AcademicBuildingDto>> GetAll()
-        {
-            throw new NotImplementedException();
+            var mappedAcademicBuilding = _mapper.Map<AcademicBuilding>(academicBuilding);
+            if (mappedAcademicBuilding != null)
+            {
+                var mappedAcademicBuildingId = await _academicBuildingRepository.Create(mappedAcademicBuilding);
+                return mappedAcademicBuildingId;
+            }
+            return -1;
         }
 
-        public Task<AcademicBuildingDto?> GetById(int id)
+        public async Task<bool> Delete(int id)
         {
-            throw new NotImplementedException();
+            return await _academicBuildingRepository.Delete(id);
         }
 
-        public Task<bool> Update(AcademicBuildingDto academicBuilding)
+        public async Task<IEnumerable<AcademicBuildingDto>> GetAll()
         {
-            throw new NotImplementedException();
+            var academicBuildings = await _academicBuildingRepository.ReadAll();
+            var mappedAcademicBuildings = academicBuildings.Select(u => _mapper.Map<AcademicBuildingDto>(u));
+            return mappedAcademicBuildings;
+        }
+
+        public async Task<AcademicBuildingDto?> GetById(int id)
+        {
+            var academicBuilding = await _academicBuildingRepository.ReadById(id);
+            var mappedAcademicBuilding = _mapper.Map<AcademicBuildingDto>(academicBuilding);
+            return mappedAcademicBuilding;
+        }
+
+        public async Task<bool> Update(AcademicBuildingDto academicBuilding)
+        {
+            if (academicBuilding == null)
+            {
+                return false;
+            }
+            var mappedAcademicBuilding = _mapper.Map<AcademicBuilding>(academicBuilding);
+            var existingAcademicBuilding = await _academicBuildingRepository.ReadById(academicBuilding.Id);
+            if (existingAcademicBuilding == null)
+            {
+                return false;
+            }
+            return await _academicBuildingRepository.Update(mappedAcademicBuilding);
         }
     }
 }

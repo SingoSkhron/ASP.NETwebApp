@@ -124,6 +124,10 @@
             "Bogus": {
               "target": "Package",
               "version": "[35.6.2, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [
