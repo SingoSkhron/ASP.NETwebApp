@@ -7,7 +7,12 @@
 /UniversitySchedule/.vs/
 /UniversitySchedule/.idea/
 /UniversitySchedule/.vscode/
-
+.vs/
+.idea/
+.vscode/
+/UniversitySchedule/.vs/UniversitySchedule
+/UniversitySchedule/.idea/UniversitySchedule
+/UniversitySchedule/.vscode/UniversitySchedule
 # Общие для всех проектов временные файлы
 **/bin/
 **/obj/
