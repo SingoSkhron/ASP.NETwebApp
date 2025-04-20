@@ -4,7 +4,12 @@
 **/.vs/
 **/.idea/
 **/.vscode/
-
+.vs/
+.idea/
+.vscode/
+/.vs/
+/.idea/
+/.vscode/
 
 # Общие для всех проектов временные файлы
 **/bin/
