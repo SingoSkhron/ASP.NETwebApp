@@ -4,7 +4,7 @@ namespace Infrastructure.Repositories
 {
     public class AuditoriumRepository : IAuditoriumRepository
     {
-        private readonly IEnumerable<Auditorium> auditoriums = new List<Auditorium>();
+        private readonly List<Auditorium> auditoriums = new List<Auditorium>();
         public AuditoriumRepository()
         {
             auditoriums = new List<Auditorium>();
@@ -29,7 +29,7 @@ namespace Infrastructure.Repositories
 
         public Task<IEnumerable<Auditorium>> ReadAll()
         {
-            return Task.FromResult(auditoriums);
+            return Task.FromResult<IEnumerable<Auditorium>>(auditoriums);
         }
 
         public Task<Auditorium?> ReadById(int id)
@@ -59,7 +59,7 @@ namespace Infrastructure.Repositories
                 auditorium.Name = $"31{i + 1}";
                 auditorium.FloorNumber = 3;
                 auditorium.BuildingId = i + 1;
-                auditoriums.ToList().Add(auditorium);
+                auditoriums.Add(auditorium);
             }
         }
         private int GetId()

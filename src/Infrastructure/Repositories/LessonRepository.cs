@@ -6,7 +6,7 @@ namespace Infrastructure.Repositories
 {
     public class LessonRepository : ILessonRepository
     {
-        private readonly IEnumerable<Lesson> lessons = new List<Lesson>();
+        private readonly List<Lesson> lessons = new List<Lesson>();
         public LessonRepository()
         {
             lessons = new List<Lesson>();
@@ -31,7 +31,7 @@ namespace Infrastructure.Repositories
 
         public Task<IEnumerable<Lesson>> ReadAll()
         {
-            return Task.FromResult(lessons);
+            return Task.FromResult<IEnumerable<Lesson>>(lessons);
         }
 
         public Task<Lesson?> ReadById(int id)
@@ -68,7 +68,7 @@ namespace Infrastructure.Repositories
                 lesson.ProfessorId = i + 1;
                 lesson.GroupId = i + 1;
                 lesson.BuildingId = i + 1;
-                lessons.ToList().Add(lesson);
+                lessons.Add(lesson);
             }
         }
         private int GetId()

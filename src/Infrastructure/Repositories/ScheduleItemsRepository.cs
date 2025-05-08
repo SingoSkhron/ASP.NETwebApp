@@ -4,7 +4,7 @@ namespace Infrastructure.Repositories
 {
     public class ScheduleItemsRepository : IScheduleItemsRepository
     {
-        private readonly IEnumerable<ScheduleItems> scheduleItems = new List<ScheduleItems>();
+        private readonly List<ScheduleItems> scheduleItems = new List<ScheduleItems>();
         public ScheduleItemsRepository()
         {
             scheduleItems = new List<ScheduleItems>();
@@ -29,7 +29,7 @@ namespace Infrastructure.Repositories
 
         public Task<IEnumerable<ScheduleItems>> ReadAll()
         {
-            return Task.FromResult(scheduleItems);
+            return Task.FromResult<IEnumerable<ScheduleItems>>(scheduleItems);
         }
 
         public Task<ScheduleItems?> ReadById(int id)
@@ -63,7 +63,7 @@ namespace Infrastructure.Repositories
                 scheduleItem.StartTime = new TimeOnly(9 + i, 0 + i * 30);
                 scheduleItem.EndTime = new TimeOnly(10 + i, 30 + i * 30);
                 scheduleItem.BuildingId = i + 1;
-                scheduleItems.ToList().Add(scheduleItem);
+                scheduleItems.Add(scheduleItem);
             }
         }
         private int GetId()

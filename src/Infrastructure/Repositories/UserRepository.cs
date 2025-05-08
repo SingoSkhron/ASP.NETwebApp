@@ -6,7 +6,7 @@ namespace Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly IEnumerable<User> users = new List<User>();
+        private readonly List<User> users = new List<User>();
         public UserRepository()
         {
             users = new List<User>();
@@ -31,7 +31,7 @@ namespace Infrastructure.Repositories
 
         public Task<IEnumerable<User>> ReadAll()
         {
-            return Task.FromResult(users);
+            return Task.FromResult<IEnumerable<User>>(users);
         }
 
         public Task<User?> ReadById(int id)
@@ -66,7 +66,7 @@ namespace Infrastructure.Repositories
                 user.Type = UserTypeEnum.Student;
                 user.GroupId = i + 1;
                 user.AdmissionYear = 2020 + i;
-                users.ToList().Add(user);
+                users.Add(user);
             }
         }
         private int GetId()
