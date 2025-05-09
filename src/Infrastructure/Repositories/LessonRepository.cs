@@ -7,11 +7,13 @@ namespace Infrastructure.Repositories
     public class LessonRepository : ILessonRepository
     {
         private readonly List<Lesson> lessons = new List<Lesson>();
+
         public LessonRepository()
         {
             lessons = new List<Lesson>();
             PopulateTestData();
         }
+
         public Task<int> Create(Lesson lesson)
         {
             lesson.Id = GetId();
@@ -55,6 +57,7 @@ namespace Infrastructure.Repositories
             lessonToUpdate.BuildingId = lesson.BuildingId;
             return Task.FromResult(true);
         }
+
         private void PopulateTestData()
         {
             var faker = new Faker();
@@ -71,6 +74,7 @@ namespace Infrastructure.Repositories
                 lessons.Add(lesson);
             }
         }
+
         private int GetId()
         {
             int id = 1;

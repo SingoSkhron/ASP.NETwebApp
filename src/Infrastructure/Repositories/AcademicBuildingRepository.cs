@@ -6,11 +6,13 @@ namespace Infrastructure.Repositories
     public class AcademicBuildingRepository : IAcademicBuildingRepository
     {
         private readonly List<AcademicBuilding> buildings = new List<AcademicBuilding>();
+
         public AcademicBuildingRepository()
         {
             buildings = new List<AcademicBuilding>();
             PopulateTestData();
         }
+
         public Task<int> Create(AcademicBuilding academicBuilding)
         {
             academicBuilding.Id = GetId();
@@ -50,6 +52,7 @@ namespace Infrastructure.Repositories
             buildingToUpdate.Name = academicBuilding.Name;
             return Task.FromResult(true);
         }
+
         private void PopulateTestData()
         {
             var faker = new Faker();
@@ -62,6 +65,7 @@ namespace Infrastructure.Repositories
                 buildings.Add(building);
             }
         }
+
         private int GetId()
         {
             int id = 1;

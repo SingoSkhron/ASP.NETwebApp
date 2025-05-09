@@ -14,6 +14,7 @@ namespace Application.Services
             _auditoriumRepository = auditoriumRepository;
             _mapper = mapper;
         }
+
         public async Task<int> Add(AuditoriumDto auditorium)
         {
             var mappedAuditorium = _mapper.Map<Auditorium>(auditorium);

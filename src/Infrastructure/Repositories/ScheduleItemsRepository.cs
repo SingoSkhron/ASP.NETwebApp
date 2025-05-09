@@ -5,11 +5,13 @@ namespace Infrastructure.Repositories
     public class ScheduleItemsRepository : IScheduleItemsRepository
     {
         private readonly List<ScheduleItems> scheduleItems = new List<ScheduleItems>();
+
         public ScheduleItemsRepository()
         {
             scheduleItems = new List<ScheduleItems>();
             PopulateTestData();
         }
+
         public Task<int> Create(ScheduleItems scheduleItem)
         {
             scheduleItem.Id = GetId();
@@ -52,6 +54,7 @@ namespace Infrastructure.Repositories
             itemToUpdate.BuildingId = scheduleItem.BuildingId;
             return Task.FromResult(true);
         }
+
         private void PopulateTestData()
         {
             for (int i = 0; i < 5; i++)
@@ -66,6 +69,7 @@ namespace Infrastructure.Repositories
                 scheduleItems.Add(scheduleItem);
             }
         }
+
         private int GetId()
         {
             int id = 1;

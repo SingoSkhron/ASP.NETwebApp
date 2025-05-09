@@ -9,6 +9,7 @@ namespace API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+
         public UserController(IUserService userService)
         {
             _userService = userService;
@@ -24,12 +25,14 @@ namespace API.Controllers
             }
             return Ok(user);
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var users = await _userService.GetAll();
             return Ok(users);
         }
+
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] UserDto user)
         {
@@ -41,6 +44,7 @@ namespace API.Controllers
             var res = new { Id = userId };
             return CreatedAtAction(nameof(GetById), new { id = userId }, res);
         }
+
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UserDto user)
         {
@@ -51,6 +55,7 @@ namespace API.Controllers
             }
             return Ok(result);
         }
+
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] int id)
         {

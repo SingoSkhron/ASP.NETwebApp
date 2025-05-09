@@ -14,6 +14,7 @@ namespace Application.Services
             _scheduleItemsRepository = scheduleItemsRepository;
             _mapper = mapper;
         }
+
         public async Task<int> Add(ScheduleItemsDto scheduleItem)
         {
             var mappedScheduleItem = _mapper.Map<ScheduleItems>(scheduleItem);

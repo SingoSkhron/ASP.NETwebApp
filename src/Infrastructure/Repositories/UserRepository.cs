@@ -7,11 +7,13 @@ namespace Infrastructure.Repositories
     public class UserRepository : IUserRepository
     {
         private readonly List<User> users = new List<User>();
+
         public UserRepository()
         {
             users = new List<User>();
             PopulateTestData();
         }
+
         public Task<int> Create(User user)
         {
             user.Id = GetId();
@@ -54,6 +56,7 @@ namespace Infrastructure.Repositories
             userToUpdate.AdmissionYear = user.AdmissionYear;
             return Task.FromResult(true);
         }
+
         private void PopulateTestData()
         {
             var faker = new Faker();
@@ -69,6 +72,7 @@ namespace Infrastructure.Repositories
                 users.Add(user);
             }
         }
+
         private int GetId()
         {
             int id = 1;

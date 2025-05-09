@@ -14,6 +14,7 @@ namespace Application.Services
             _groupRepository = groupRepository;
             _mapper = mapper;
         }
+
         public async Task<int> Add(GroupDto group)
         {
             var mappedGroup = _mapper.Map<Group>(group);

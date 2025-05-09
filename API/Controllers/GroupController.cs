@@ -9,6 +9,7 @@ namespace API.Controllers
     public class GroupController : ControllerBase
     {
         private readonly IGroupService _groupService;
+
         public GroupController(IGroupService groupService)
         {
             _groupService = groupService;
@@ -24,12 +25,14 @@ namespace API.Controllers
             }
             return Ok(group);
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var groups = await _groupService.GetAll();
             return Ok(groups);
         }
+
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] GroupDto group)
         {
@@ -41,6 +44,7 @@ namespace API.Controllers
             var res = new { Id = groupId };
             return CreatedAtAction(nameof(GetById), new { id = groupId }, res);
         }
+
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] GroupDto group)
         {
@@ -51,6 +55,7 @@ namespace API.Controllers
             }
             return Ok(result);
         }
+
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] int id)
         {

@@ -14,6 +14,7 @@ namespace Application.Services
             _lessonRepository = lessonRepository;
             _mapper = mapper;
         }
+
         public async Task<int> Add(LessonDto lesson)
         {
             var mappedLesson = _mapper.Map<Lesson>(lesson);

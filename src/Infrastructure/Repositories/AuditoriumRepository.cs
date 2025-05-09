@@ -5,11 +5,13 @@ namespace Infrastructure.Repositories
     public class AuditoriumRepository : IAuditoriumRepository
     {
         private readonly List<Auditorium> auditoriums = new List<Auditorium>();
+
         public AuditoriumRepository()
         {
             auditoriums = new List<Auditorium>();
             PopulateTestData();
         }
+
         public Task<int> Create(Auditorium auditorium)
         {
             auditorium.Id = GetId();
@@ -50,6 +52,7 @@ namespace Infrastructure.Repositories
             auditoriumToUpdate.BuildingId = auditorium.BuildingId;
             return Task.FromResult(true);
         }
+
         private void PopulateTestData()
         {
             for (int i = 0; i < 5; i++)
@@ -62,6 +65,7 @@ namespace Infrastructure.Repositories
                 auditoriums.Add(auditorium);
             }
         }
+
         private int GetId()
         {
             int id = 1;

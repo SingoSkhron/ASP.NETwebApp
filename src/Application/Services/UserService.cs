@@ -14,6 +14,7 @@ namespace Application.Services
             _userRepository = userRepository;
             _mapper = mapper;
         }
+
         public async Task<int> Add(UserDto user)
         {
             var mappedUser = _mapper.Map<User>(user);

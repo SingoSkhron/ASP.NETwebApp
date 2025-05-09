@@ -14,6 +14,7 @@ namespace Application.Services
             _academicBuildingRepository = academicBuildingRepository;
             _mapper = mapper;
         }
+
         public async Task<int> Add(AcademicBuildingDto academicBuilding)
         {
             var mappedAcademicBuilding = _mapper.Map<AcademicBuilding>(academicBuilding);
