@@ -9,6 +9,7 @@ namespace API.Controllers
     public class ScheduleItemsController : ControllerBase
     {
         private readonly IScheduleItemsService _scheduleItemsService;
+
         public ScheduleItemsController(IScheduleItemsService scheduleItemsService)
         {
             _scheduleItemsService = scheduleItemsService;
@@ -24,12 +25,14 @@ namespace API.Controllers
             }
             return Ok(scheduleItem);
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var scheduleItems = await _scheduleItemsService.GetAll();
             return Ok(scheduleItems);
         }
+
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] ScheduleItemsDto scheduleItems)
         {
@@ -41,6 +44,7 @@ namespace API.Controllers
             var res = new { Id = scheduleItemId };
             return CreatedAtAction(nameof(GetById), new { id = scheduleItemId }, res);
         }
+
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] ScheduleItemsDto scheduleItems)
         {
@@ -51,6 +55,7 @@ namespace API.Controllers
             }
             return Ok(result);
         }
+
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] int id)
         {

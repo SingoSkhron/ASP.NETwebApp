@@ -1,16 +1,18 @@
 ﻿using Bogus;
 using Domain.Entities;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.Repositories.AcademicBuildingRepository
 {
     public class AcademicBuildingInMemoryRepository : IAcademicBuildingRepository
     {
         private readonly List<AcademicBuilding> buildings = new List<AcademicBuilding>();
+
         public AcademicBuildingInMemoryRepository()
         {
             buildings = new List<AcademicBuilding>();
             PopulateTestData();
         }
+
         public Task<int> Create(AcademicBuilding academicBuilding)
         {
             academicBuilding.Id = GetId();
@@ -50,6 +52,7 @@ namespace Infrastructure.Repositories
             buildingToUpdate.Name = academicBuilding.Name;
             return Task.FromResult(true);
         }
+
         private void PopulateTestData()
         {
             var faker = new Faker();
@@ -62,6 +65,7 @@ namespace Infrastructure.Repositories
                 buildings.Add(building);
             }
         }
+
         private int GetId()
         {
             int id = 1;

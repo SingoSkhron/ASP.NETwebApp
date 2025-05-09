@@ -1,16 +1,18 @@
 ﻿using Domain.Entities;
 using Domain.Enums;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.Repositories.GroupRepository
 {
     public class GroupInMemoryRepository : IGroupRepository
     {
         private readonly List<Group> groups = new List<Group>();
+
         public GroupInMemoryRepository()
         {
             groups = new List<Group>();
             PopulateTestData();
         }
+
         public Task<int> Create(Group group)
         {
             group.Id = GetId();
@@ -52,6 +54,7 @@ namespace Infrastructure.Repositories
             groupToUpdate.AdmissionYear = group.AdmissionYear;
             return Task.FromResult(true);
         }
+
         private void PopulateTestData()
         {
             for (int i = 0; i < 5; i++)
@@ -65,6 +68,7 @@ namespace Infrastructure.Repositories
                 groups.Add(group);
             }
         }
+
         private int GetId()
         {
             int id = 1;

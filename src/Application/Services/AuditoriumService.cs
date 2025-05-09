@@ -1,7 +1,7 @@
 ﻿using Application.DTOs;
 using AutoMapper;
 using Domain.Entities;
-using Infrastructure.Repositories;
+using Infrastructure.Repositories.AuditoriumRepository;
 
 namespace Application.Services
 {
@@ -9,11 +9,13 @@ namespace Application.Services
     {
         private readonly IAuditoriumRepository _auditoriumRepository;
         private readonly IMapper _mapper;
+
         public AuditoriumService(IAuditoriumRepository auditoriumRepository, IMapper mapper)
         {
             _auditoriumRepository = auditoriumRepository;
             _mapper = mapper;
         }
+
         public async Task<int> Add(AuditoriumDto auditorium)
         {
             var mappedAuditorium = _mapper.Map<Auditorium>(auditorium);

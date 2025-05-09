@@ -9,6 +9,7 @@ namespace API.Controllers
     public class AuditoriumController : ControllerBase
     {
         private readonly IAuditoriumService _auditoriumService;
+
         public AuditoriumController(IAuditoriumService auditoriumService)
         {
             _auditoriumService = auditoriumService;
@@ -24,12 +25,14 @@ namespace API.Controllers
             }
             return Ok(auditorium);
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var auditoriums = await _auditoriumService.GetAll();
             return Ok(auditoriums);
         }
+
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] AuditoriumDto auditorium)
         {
@@ -41,6 +44,7 @@ namespace API.Controllers
             var res = new { Id = auditoriumId };
             return CreatedAtAction(nameof(GetById), new { id = auditoriumId }, res);
         }
+
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] AuditoriumDto auditorium)
         {
@@ -51,6 +55,7 @@ namespace API.Controllers
             }
             return Ok(result);
         }
+
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] int id)
         {

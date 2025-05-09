@@ -1,7 +1,7 @@
 ﻿using Application.DTOs;
 using AutoMapper;
 using Domain.Entities;
-using Infrastructure.Repositories;
+using Infrastructure.Repositories.ScheduleItemsRepository;
 
 namespace Application.Services
 {
@@ -9,11 +9,13 @@ namespace Application.Services
     {
         private readonly IScheduleItemsRepository _scheduleItemsRepository;
         private readonly IMapper _mapper;
+
         public ScheduleItemsService(IScheduleItemsRepository scheduleItemsRepository, IMapper mapper)
         {
             _scheduleItemsRepository = scheduleItemsRepository;
             _mapper = mapper;
         }
+
         public async Task<int> Add(ScheduleItemsDto scheduleItem)
         {
             var mappedScheduleItem = _mapper.Map<ScheduleItems>(scheduleItem);

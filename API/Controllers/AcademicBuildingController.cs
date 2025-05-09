@@ -9,6 +9,7 @@ namespace API.Controllers
     public class AcademicBuildingController : ControllerBase
     {
         private readonly IAcademicBuildingService _academicBuildingService;
+
         public AcademicBuildingController(IAcademicBuildingService academicBuildingService)
         {
             _academicBuildingService = academicBuildingService;
@@ -24,12 +25,14 @@ namespace API.Controllers
             }
             return Ok(academicBuilding);
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var academicBuildings = await _academicBuildingService.GetAll();
             return Ok(academicBuildings);
         }
+
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] AcademicBuildingDto academicBuilding)
         {
@@ -41,6 +44,7 @@ namespace API.Controllers
             var res = new { Id = academicBuildingId };
             return CreatedAtAction(nameof(GetById), new { id = academicBuildingId }, res);
         }
+
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] AcademicBuildingDto academicBuilding)
         {
@@ -51,6 +55,7 @@ namespace API.Controllers
             }
             return Ok(result);
         }
+
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] int id)
         {

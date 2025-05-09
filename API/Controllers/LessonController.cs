@@ -9,6 +9,7 @@ namespace API.Controllers
     public class LessonController : ControllerBase
     {
         private readonly ILessonService _lessonService;
+
         public LessonController(ILessonService lessonService)
         {
             _lessonService = lessonService;
@@ -24,12 +25,14 @@ namespace API.Controllers
             }
             return Ok(lesson);
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var lessons = await _lessonService.GetAll();
             return Ok(lessons);
         }
+
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] LessonDto lesson)
         {
@@ -41,6 +44,7 @@ namespace API.Controllers
             var res = new { Id = lessonId };
             return CreatedAtAction(nameof(GetById), new { id = lessonId }, res);
         }
+
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] LessonDto lesson)
         {
@@ -51,6 +55,7 @@ namespace API.Controllers
             }
             return Ok(result);
         }
+
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] int id)
         {

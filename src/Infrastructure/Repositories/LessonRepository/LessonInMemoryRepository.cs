@@ -2,16 +2,18 @@
 using Domain.Entities;
 using Domain.Enums;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.Repositories.LessonRepository
 {
     public class LessonInMemoryRepository : ILessonRepository
     {
         private readonly List<Lesson> lessons = new List<Lesson>();
+
         public LessonInMemoryRepository()
         {
             lessons = new List<Lesson>();
             PopulateTestData();
         }
+
         public Task<int> Create(Lesson lesson)
         {
             lesson.Id = GetId();
@@ -55,6 +57,7 @@ namespace Infrastructure.Repositories
             lessonToUpdate.BuildingId = lesson.BuildingId;
             return Task.FromResult(true);
         }
+
         private void PopulateTestData()
         {
             var faker = new Faker();
@@ -71,6 +74,7 @@ namespace Infrastructure.Repositories
                 lessons.Add(lesson);
             }
         }
+
         private int GetId()
         {
             int id = 1;

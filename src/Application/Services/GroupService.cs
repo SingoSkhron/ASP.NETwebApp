@@ -1,7 +1,7 @@
 ﻿using Application.DTOs;
 using AutoMapper;
 using Domain.Entities;
-using Infrastructure.Repositories;
+using Infrastructure.Repositories.GroupRepository;
 
 namespace Application.Services
 {
@@ -9,11 +9,13 @@ namespace Application.Services
     {
         private readonly IGroupRepository _groupRepository;
         private readonly IMapper _mapper;
+
         public GroupService(IGroupRepository groupRepository, IMapper mapper)
         {
             _groupRepository = groupRepository;
             _mapper = mapper;
         }
+
         public async Task<int> Add(GroupDto group)
         {
             var mappedGroup = _mapper.Map<Group>(group);
