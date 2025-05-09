@@ -1,4 +1,6 @@
 ﻿using Application.DTOs;
+using AutoMapper;
+using Domain.Entities;
 using Infrastructure.Repositories;
 
 namespace Application.Services
@@ -6,33 +8,56 @@ namespace Application.Services
     public class ScheduleItemsService : IScheduleItemsService
     {
         private readonly IScheduleItemsRepository _scheduleItemsRepository;
-        public ScheduleItemsService(IScheduleItemsRepository scheduleItemsRepository)
+        private readonly IMapper _mapper;
+        public ScheduleItemsService(IScheduleItemsRepository scheduleItemsRepository, IMapper mapper)
         {
             _scheduleItemsRepository = scheduleItemsRepository;
-        }
-        public Task<int> Add(ScheduleItemsDto scheduleItem)
-        {
-            throw new NotImplementedException();
+            _mapper = mapper;
         }
 
-        public Task<bool> Delete(int id)
+        public async Task<int> Add(ScheduleItemsDto scheduleItem)
         {
-            throw new NotImplementedException();
+            var mappedScheduleItem = _mapper.Map<ScheduleItems>(scheduleItem);
+            if (mappedScheduleItem != null)
+            {
+                var mappedScheduleItemsId = await _scheduleItemsRepository.Create(mappedScheduleItem);
+                return mappedScheduleItemsId;
+            }
+            return -1;
         }
 
-        public Task<IEnumerable<ScheduleItemsDto>> GetAll()
+        public async Task<bool> Delete(int id)
         {
-            throw new NotImplementedException();
+            return await _scheduleItemsRepository.Delete(id);
         }
 
-        public Task<ScheduleItemsDto?> GetById(int id)
+        public async Task<IEnumerable<ScheduleItemsDto>> GetAll()
         {
-            throw new NotImplementedException();
+            var scheduleItems = await _scheduleItemsRepository.ReadAll();
+            var mappedScheduleItems = scheduleItems.Select(u => _mapper.Map<ScheduleItemsDto>(u));
+            return mappedScheduleItems;
         }
 
-        public Task<bool> Update(ScheduleItemsDto scheduleItem)
+        public async Task<ScheduleItemsDto?> GetById(int id)
         {
-            throw new NotImplementedException();
+            var scheduleItem = await _scheduleItemsRepository.ReadById(id);
+            var mappedScheduleItem = _mapper.Map<ScheduleItemsDto>(scheduleItem);
+            return mappedScheduleItem;
+        }
+
+        public async Task<bool> Update(ScheduleItemsDto scheduleItem)
+        {
+            if (scheduleItem == null)
+            {
+                return false;
+            }
+            var mappedScheduleItems = _mapper.Map<ScheduleItems>(scheduleItem);
+            var existingScheduleItems = await _scheduleItemsRepository.ReadById(scheduleItem.Id);
+            if (existingScheduleItems == null)
+            {
+                return false;
+            }
+            return await _scheduleItemsRepository.Update(mappedScheduleItems);
         }
     }
 }

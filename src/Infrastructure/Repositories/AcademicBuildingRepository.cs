@@ -5,12 +5,14 @@ namespace Infrastructure.Repositories
 {
     public class AcademicBuildingRepository : IAcademicBuildingRepository
     {
-        private readonly IEnumerable<AcademicBuilding> buildings = new List<AcademicBuilding>();
+        private readonly List<AcademicBuilding> buildings = new List<AcademicBuilding>();
+
         public AcademicBuildingRepository()
         {
             buildings = new List<AcademicBuilding>();
             PopulateTestData();
         }
+
         public Task<int> Create(AcademicBuilding academicBuilding)
         {
             academicBuilding.Id = GetId();
@@ -30,7 +32,7 @@ namespace Infrastructure.Repositories
 
         public Task<IEnumerable<AcademicBuilding>> ReadAll()
         {
-            return Task.FromResult(buildings);
+            return Task.FromResult<IEnumerable<AcademicBuilding>>(buildings);
         }
 
         public Task<AcademicBuilding?> ReadById(int id)
@@ -50,6 +52,7 @@ namespace Infrastructure.Repositories
             buildingToUpdate.Name = academicBuilding.Name;
             return Task.FromResult(true);
         }
+
         private void PopulateTestData()
         {
             var faker = new Faker();
@@ -59,9 +62,10 @@ namespace Infrastructure.Repositories
                 building.Id = i + 1;
                 building.Address = faker.Address.ToString();
                 building.Name = "Корпус 7";
-                buildings.ToList().Add(building);
+                buildings.Add(building);
             }
         }
+
         private int GetId()
         {
             int id = 1;

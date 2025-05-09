@@ -5,12 +5,14 @@ namespace Infrastructure.Repositories
 {
     public class GroupRepository : IGroupRepository
     {
-        private readonly IEnumerable<Group> groups = new List<Group>();
+        private readonly List<Group> groups = new List<Group>();
+
         public GroupRepository()
         {
             groups = new List<Group>();
             PopulateTestData();
         }
+
         public Task<int> Create(Group group)
         {
             group.Id = GetId();
@@ -30,7 +32,7 @@ namespace Infrastructure.Repositories
 
         public Task<IEnumerable<Group>> ReadAll()
         {
-            return Task.FromResult(groups);
+            return Task.FromResult<IEnumerable<Group>>(groups);
         }
 
         public Task<Group?> ReadById(int id)
@@ -52,6 +54,7 @@ namespace Infrastructure.Repositories
             groupToUpdate.AdmissionYear = group.AdmissionYear;
             return Task.FromResult(true);
         }
+
         private void PopulateTestData()
         {
             for (int i = 0; i < 5; i++)
@@ -62,9 +65,10 @@ namespace Infrastructure.Repositories
                 group.EducationForm = EducationFormEnum.FullTime;
                 group.EducationLevel = EducationLevelEnum.Specialty;
                 group.AdmissionYear = 2020 + i;
-                groups.ToList().Add(group);
+                groups.Add(group);
             }
         }
+
         private int GetId()
         {
             int id = 1;
