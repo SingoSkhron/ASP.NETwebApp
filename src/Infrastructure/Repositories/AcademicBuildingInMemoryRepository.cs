@@ -3,10 +3,10 @@ using Domain.Entities;
 
 namespace Infrastructure.Repositories
 {
-    public class AcademicBuildingRepository : IAcademicBuildingRepository
+    public class AcademicBuildingInMemoryRepository : IAcademicBuildingRepository
     {
         private readonly List<AcademicBuilding> buildings = new List<AcademicBuilding>();
-        public AcademicBuildingRepository()
+        public AcademicBuildingInMemoryRepository()
         {
             buildings = new List<AcademicBuilding>();
             PopulateTestData();

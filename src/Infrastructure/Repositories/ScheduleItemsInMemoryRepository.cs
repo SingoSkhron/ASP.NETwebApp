@@ -2,10 +2,10 @@
 
 namespace Infrastructure.Repositories
 {
-    public class ScheduleItemsRepository : IScheduleItemsRepository
+    public class ScheduleItemsInMemoryRepository : IScheduleItemsRepository
     {
         private readonly List<ScheduleItems> scheduleItems = new List<ScheduleItems>();
-        public ScheduleItemsRepository()
+        public ScheduleItemsInMemoryRepository()
         {
             scheduleItems = new List<ScheduleItems>();
             PopulateTestData();
