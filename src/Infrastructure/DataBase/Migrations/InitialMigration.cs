@@ -6,9 +6,10 @@ namespace Infrastructure.DataBase.Migrations
     [Migration(202505091315)]
     public class InitialMigration : Migration
     {
+
         public override void Up()
         {
-            Create.Table("academicbuilding")
+            Create.Table("academic_building")
                 .WithColumn("id").AsInt32().PrimaryKey().Identity()
                 .WithColumn("address").AsString(250).NotNullable()
                 .WithColumn("name").AsString(100).NotNullable();
@@ -17,7 +18,7 @@ namespace Infrastructure.DataBase.Migrations
                 .WithColumn("id").AsInt32().PrimaryKey().Identity()
                 .WithColumn("name").AsString(100).NotNullable()
                 .WithColumn("floor_number").AsInt32().NotNullable().WithDefaultValue(1)
-                .WithColumn("building_id").AsInt32().ForeignKey("academicbuilding", "id").NotNullable();
+                .WithColumn("building_id").AsInt32().ForeignKey("academic_building", "id").NotNullable();
 
             Create.Table("group")
                 .WithColumn("id").AsInt32().PrimaryKey().Identity()
@@ -26,13 +27,13 @@ namespace Infrastructure.DataBase.Migrations
                 .WithColumn("education_form").AsString(50).WithDefaultValue("FullTime")
                 .WithColumn("admission_year").AsInt32().NotNullable();
 
-            Create.Table("scheduleitems")
+            Create.Table("schedule_item")
                 .WithColumn("id").AsInt32().PrimaryKey().Identity()
                 .WithColumn("order_number").AsInt32().NotNullable().WithDefaultValue(1)
                 .WithColumn("day_of_the_week").AsInt32().NotNullable()
                 .WithColumn("start_time").AsTime().NotNullable()
                 .WithColumn("end_time").AsTime().NotNullable()
-                .WithColumn("building_id").AsInt32().ForeignKey("academicbuilding", "id").NotNullable();
+                .WithColumn("building_id").AsInt32().ForeignKey("academic_building", "id").NotNullable();
 
             Create.Table("user")
                 .WithColumn("id").AsInt32().PrimaryKey().Identity()
@@ -47,12 +48,12 @@ namespace Infrastructure.DataBase.Migrations
                 .WithColumn("name").AsString().NotNullable()
                 .WithColumn("lesson_type").AsString().NotNullable().WithDefaultValue("Lecture")
                 .WithColumn("auditorium_id").AsInt32().ForeignKey("auditorium", "id").NotNullable()
-                .WithColumn("building_id").AsInt32().ForeignKey("academicbuilding", "id").NotNullable()
+                .WithColumn("building_id").AsInt32().ForeignKey("academic_building", "id").NotNullable()
                 .WithColumn("professor_id").AsInt32().ForeignKey("user", "id").NotNullable()
                 .WithColumn("group_id").AsInt32().ForeignKey("group", "id").NotNullable()
-                .WithColumn("schedule_item_id").AsInt32().ForeignKey("scheduleitems", "id").NotNullable();
+                .WithColumn("schedule_item_id").AsInt32().ForeignKey("schedule_item", "id").NotNullable();
 
-            Insert.IntoTable("academicbuilding")
+            Insert.IntoTable("academic_building")
                 .Row(new
                 {
                     address = "г. Ярославль, ул. Союзная, д. 144",
@@ -73,7 +74,7 @@ namespace Infrastructure.DataBase.Migrations
                     education_form = EducationFormEnum.FullTime.ToString(),
                     admission_year = 2020
                 });
-            Insert.IntoTable("scheduleitems")
+            Insert.IntoTable("schedule_item")
                 .Row(new
                 {
                     order_number = 1,
@@ -103,14 +104,15 @@ namespace Infrastructure.DataBase.Migrations
                     schedule_item_id = 1
                 });
         }
+
         public override void Down()
         {
             Delete.Table("lesson");
             Delete.Table("user");
-            Delete.Table("scheduleitems");
+            Delete.Table("schedule_item");
             Delete.Table("group");
             Delete.Table("auditorium");
-            Delete.Table("academicbuilding");
+            Delete.Table("academic_building");
         }
     }
 }

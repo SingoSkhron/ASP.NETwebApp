@@ -4,14 +4,16 @@ namespace Infrastructure.DataBase
 {
     public class MigrationRunner
     {
-        private readonly IMigrationRunner migrationRunner;
+        private readonly IMigrationRunner _migrationRunner;
+
         public MigrationRunner(IMigrationRunner migrationRunner)
         {
-            this.migrationRunner = migrationRunner;
+            _migrationRunner = migrationRunner;
         }
+
         public void Run()
         {
-            migrationRunner.MigrateUp();
+            _migrationRunner.MigrateUp();
         }
     }
 }

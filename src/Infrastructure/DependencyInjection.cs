@@ -25,8 +25,8 @@ namespace Infrastructure
 
             services.AddScoped(sp =>
             {
-                var datasource = sp.GetRequiredService<NpgsqlDataSource>();
-                return datasource.CreateConnection();
+                var dataSource = sp.GetRequiredService<NpgsqlDataSource>();
+                return dataSource.CreateConnection();
             });
 
             services.AddTransient<IAcademicBuildingRepository, AcademicBuildingPostgresRepository>();
@@ -38,9 +38,9 @@ namespace Infrastructure
 
             services.AddFluentMigratorCore()
                 .ConfigureRunner(
-                rb => rb.AddPostgres()
-                .WithGlobalConnectionString("PostgresDB")
-                .ScanIn(Assembly.GetExecutingAssembly()).For.Migrations()
+                    rb => rb.AddPostgres()
+                    .WithGlobalConnectionString("PostgresDB")
+                    .ScanIn(Assembly.GetExecutingAssembly()).For.Migrations()
                 )
                 .AddLogging(lb => lb.AddFluentMigratorConsole());
 
