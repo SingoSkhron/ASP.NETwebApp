@@ -1,12 +1,12 @@
 ﻿using Domain.Entities;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.Repositories.AuditoriumRepository
 {
-    public class AuditoriumRepository : IAuditoriumRepository
+    public class AuditoriumInMemoryRepository : IAuditoriumRepository
     {
         private readonly List<Auditorium> auditoriums = new List<Auditorium>();
 
-        public AuditoriumRepository()
+        public AuditoriumInMemoryRepository()
         {
             auditoriums = new List<Auditorium>();
             PopulateTestData();

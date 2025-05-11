@@ -1,13 +1,13 @@
 ﻿using Domain.Entities;
 using Domain.Enums;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.Repositories.GroupRepository
 {
-    public class GroupRepository : IGroupRepository
+    public class GroupInMemoryRepository : IGroupRepository
     {
         private readonly List<Group> groups = new List<Group>();
 
-        public GroupRepository()
+        public GroupInMemoryRepository()
         {
             groups = new List<Group>();
             PopulateTestData();

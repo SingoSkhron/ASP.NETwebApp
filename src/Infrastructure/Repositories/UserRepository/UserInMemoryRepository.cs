@@ -2,13 +2,13 @@
 using Domain.Entities;
 using Domain.Enums;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.Repositories.UserRepository
 {
-    public class UserRepository : IUserRepository
+    public class UserInMemoryRepository : IUserRepository
     {
         private readonly List<User> users = new List<User>();
 
-        public UserRepository()
+        public UserInMemoryRepository()
         {
             users = new List<User>();
             PopulateTestData();

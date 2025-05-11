@@ -18,3 +18,4 @@
 *.log
 *.cache
 /UniversitySchedule/Infrastructure/obj/Debug/net8.0/Infrastructure.assets.cache
+/API/API.http

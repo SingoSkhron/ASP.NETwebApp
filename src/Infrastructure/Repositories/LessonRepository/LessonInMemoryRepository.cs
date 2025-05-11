@@ -2,13 +2,13 @@
 using Domain.Entities;
 using Domain.Enums;
 
-namespace Infrastructure.Repositories
+namespace Infrastructure.Repositories.LessonRepository
 {
-    public class LessonRepository : ILessonRepository
+    public class LessonInMemoryRepository : ILessonRepository
     {
         private readonly List<Lesson> lessons = new List<Lesson>();
 
-        public LessonRepository()
+        public LessonInMemoryRepository()
         {
             lessons = new List<Lesson>();
             PopulateTestData();

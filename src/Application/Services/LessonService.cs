@@ -1,7 +1,7 @@
 ﻿using Application.DTOs;
 using AutoMapper;
 using Domain.Entities;
-using Infrastructure.Repositories;
+using Infrastructure.Repositories.LessonRepository;
 
 namespace Application.Services
 {
@@ -9,6 +9,7 @@ namespace Application.Services
     {
         private readonly ILessonRepository _lessonRepository;
         private readonly IMapper _mapper;
+
         public LessonService(ILessonRepository lessonRepository, IMapper mapper)
         {
             _lessonRepository = lessonRepository;

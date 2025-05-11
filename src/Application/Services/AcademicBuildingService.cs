@@ -1,7 +1,7 @@
 ﻿using Application.DTOs;
 using AutoMapper;
 using Domain.Entities;
-using Infrastructure.Repositories;
+using Infrastructure.Repositories.AcademicBuildingRepository;
 
 namespace Application.Services
 {
@@ -9,6 +9,7 @@ namespace Application.Services
     {
         private readonly IAcademicBuildingRepository _academicBuildingRepository;
         private readonly IMapper _mapper;
+
         public AcademicBuildingService(IAcademicBuildingRepository academicBuildingRepository, IMapper mapper)
         {
             _academicBuildingRepository = academicBuildingRepository;

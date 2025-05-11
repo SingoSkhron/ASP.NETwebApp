@@ -1,5 +1,6 @@
 using Application;
 using Infrastructure;
+using Infrastructure.DataBase;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +15,11 @@ builder.Services.AddApplication();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var migrationRunner = scope.ServiceProvider.GetRequiredService<MigrationRunner>();
+    migrationRunner.Run();
+}
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
