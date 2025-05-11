@@ -16,7 +16,7 @@ namespace Infrastructure.Repositories.AcademicBuildingRepository
         public async Task<int> Create(AcademicBuilding academicBuilding)
         {
             var academicBuildingId = await _connection.QuerySingleAsync<int>(
-                @"INSERT INTO academicbuilding (address, name) VALUES (@Address, @Name)
+                @"INSERT INTO academic_building (address, name) VALUES (@Address, @Name)
                 RETURNING id", new { academicBuilding.Address, academicBuilding.Name });
 
             return academicBuildingId;
@@ -25,7 +25,7 @@ namespace Infrastructure.Repositories.AcademicBuildingRepository
         public async Task<bool> Delete(int id)
         {
             var affectedRows = await _connection.ExecuteAsync(
-                @"DELETE FROM academicbuilding WHERE id = @Id", new { Id = id });
+                @"DELETE FROM academic_building WHERE id = @Id", new { Id = id });
 
             return affectedRows > 0;
         }
@@ -33,7 +33,7 @@ namespace Infrastructure.Repositories.AcademicBuildingRepository
         public async Task<IEnumerable<AcademicBuilding>> ReadAll()
         {
             var academicBuildings = await _connection.QueryAsync<AcademicBuilding>(
-                @"SELECT id, address, name FROM academicbuilding");
+                @"SELECT id, address, name FROM academic_building");
 
             return academicBuildings.ToList();
         }
@@ -41,7 +41,7 @@ namespace Infrastructure.Repositories.AcademicBuildingRepository
         public async Task<AcademicBuilding?> ReadById(int id)
         {
             var academicBuilding = await _connection.QueryFirstOrDefaultAsync<AcademicBuilding>(
-                @"SELECT address, name FROM academicbuilding WHERE id = @Id", new { Id = id });
+                @"SELECT address, name FROM academic_building WHERE id = @Id", new { Id = id });
 
             return academicBuilding;
         }
@@ -49,7 +49,7 @@ namespace Infrastructure.Repositories.AcademicBuildingRepository
         public async Task<bool> Update(AcademicBuilding academicBuilding)
         {
             var affectedRows = await _connection.ExecuteAsync(
-                @"UPDATE academicbuilding
+                @"UPDATE academic_building
                 SET address = @Address, name = @Name
                 WHERE id = @Id", academicBuilding);
 
