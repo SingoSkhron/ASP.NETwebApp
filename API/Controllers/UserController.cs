@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.Requests;
 using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,10 +19,6 @@ namespace API.Controllers
         public async Task<IActionResult> GetById([FromQuery] int id)
         {
             var user = await _userService.GetById(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
             return Ok(user);
         }
 
@@ -34,36 +30,24 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] UserDto user)
+        public async Task<IActionResult> Add([FromBody] CreateUserRequest request)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            var userId = await _userService.Add(user);
+            var userId = await _userService.Add(request);
             var res = new { Id = userId };
             return CreatedAtAction(nameof(GetById), new { id = userId }, res);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UserDto user)
+        public async Task<IActionResult> Update([FromBody] UpdateUserRequest request)
         {
-            var result = await _userService.Update(user);
-            if (!result)
-            {
-                return NotFound();
-            }
-            return Ok(result);
+            await _userService.Update(request);
+            return Ok();
         }
 
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] int id)
         {
-            var result = await _userService.Delete(id);
-            if (!result)
-            {
-                return NotFound();
-            }
+            await _userService.Delete(id);
             return NoContent();
         }
     }

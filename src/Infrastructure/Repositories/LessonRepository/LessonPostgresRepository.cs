@@ -1,5 +1,4 @@
-﻿using Bogus;
-using Dapper;
+﻿using Dapper;
 using Domain.Entities;
 using Npgsql;
 

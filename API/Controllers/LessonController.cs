@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.Requests;
 using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,10 +19,6 @@ namespace API.Controllers
         public async Task<IActionResult> GetById([FromQuery] int id)
         {
             var lesson = await _lessonService.GetById(id);
-            if (lesson == null)
-            {
-                return NotFound();
-            }
             return Ok(lesson);
         }
 
@@ -34,36 +30,24 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] LessonDto lesson)
+        public async Task<IActionResult> Add([FromBody] CreateLessonRequest request)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            var lessonId = await _lessonService.Add(lesson);
+            var lessonId = await _lessonService.Add(request);
             var res = new { Id = lessonId };
             return CreatedAtAction(nameof(GetById), new { id = lessonId }, res);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] LessonDto lesson)
+        public async Task<IActionResult> Update([FromBody] UpdateLessonRequest request)
         {
-            var result = await _lessonService.Update(lesson);
-            if (!result)
-            {
-                return NotFound();
-            }
-            return Ok(result);
+            await _lessonService.Update(request);
+            return Ok();
         }
 
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] int id)
         {
-            var result = await _lessonService.Delete(id);
-            if (!result)
-            {
-                return NotFound();
-            }
+            await _lessonService.Delete(id);
             return NoContent();
         }
     }

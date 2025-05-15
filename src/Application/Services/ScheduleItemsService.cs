@@ -1,4 +1,6 @@
 ﻿using Application.DTOs;
+using Application.Exceptions;
+using Application.Requests;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Repositories.ScheduleItemsRepository;
@@ -16,20 +18,26 @@ namespace Application.Services
             _mapper = mapper;
         }
 
-        public async Task<int> Add(ScheduleItemsDto scheduleItem)
+        public async Task<int> Add(CreateScheduleItemRequest request)
         {
-            var mappedScheduleItem = _mapper.Map<ScheduleItems>(scheduleItem);
-            if (mappedScheduleItem != null)
+            var scheduleItems = new ScheduleItems()
             {
-                var mappedScheduleItemsId = await _scheduleItemsRepository.Create(mappedScheduleItem);
-                return mappedScheduleItemsId;
-            }
-            return -1;
+                OrderNumber = request.OrderNumber,
+                DayOfTheWeek = request.DayOfTheWeek,
+                StartTime = request.StartTime,
+                EndTime = request.EndTime,
+                BuildingId = request.BuildingId
+            };
+            return await _scheduleItemsRepository.Create(scheduleItems);
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task Delete(int id)
         {
-            return await _scheduleItemsRepository.Delete(id);
+            var res = await _scheduleItemsRepository.Delete(id);
+            if (res == false)
+            {
+                throw new EntityDeleteException("ScheduleItem for deletion not found");
+            }
         }
 
         public async Task<IEnumerable<ScheduleItemsDto>> GetAll()
@@ -42,23 +50,30 @@ namespace Application.Services
         public async Task<ScheduleItemsDto?> GetById(int id)
         {
             var scheduleItem = await _scheduleItemsRepository.ReadById(id);
+            if (scheduleItem == null)
+            {
+                throw new NotFoundApplicationException("ScheduleItem not found.");
+            }
             var mappedScheduleItem = _mapper.Map<ScheduleItemsDto>(scheduleItem);
             return mappedScheduleItem;
         }
 
-        public async Task<bool> Update(ScheduleItemsDto scheduleItem)
+        public async Task Update(UpdateScheduleItemRequest request)
         {
-            if (scheduleItem == null)
+            var scheduleItem = new ScheduleItems()
             {
-                return false;
-            }
-            var mappedScheduleItems = _mapper.Map<ScheduleItems>(scheduleItem);
-            var existingScheduleItems = await _scheduleItemsRepository.ReadById(scheduleItem.Id);
-            if (existingScheduleItems == null)
+                Id = request.Id,
+                OrderNumber = request.OrderNumber,
+                DayOfTheWeek = request.DayOfTheWeek,
+                StartTime = request.StartTime,
+                EndTime = request.EndTime,
+                BuildingId = request.BuildingId
+            };
+            var res = await _scheduleItemsRepository.Update(scheduleItem);
+            if (res == false)
             {
-                return false;
+                throw new EntityUpdateException("ScheduleItem wasn't updated.");
             }
-            return await _scheduleItemsRepository.Update(mappedScheduleItems);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Application.DTOs;
+using Application.Exceptions;
+using Application.Requests;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Repositories.AcademicBuildingRepository;
@@ -16,20 +18,23 @@ namespace Application.Services
             _mapper = mapper;
         }
 
-        public async Task<int> Add(AcademicBuildingDto academicBuilding)
+        public async Task<int> Add(CreateAcademicBuildingRequest request)
         {
-            var mappedAcademicBuilding = _mapper.Map<AcademicBuilding>(academicBuilding);
-            if (mappedAcademicBuilding != null)
+            var academicBuilding = new AcademicBuilding()
             {
-                var mappedAcademicBuildingId = await _academicBuildingRepository.Create(mappedAcademicBuilding);
-                return mappedAcademicBuildingId;
-            }
-            return -1;
+                Address = request.Address,
+                Name = request.Name
+            };
+            return await _academicBuildingRepository.Create(academicBuilding);
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task Delete(int id)
         {
-            return await _academicBuildingRepository.Delete(id);
+            var res = await _academicBuildingRepository.Delete(id);
+            if (res == false)
+            {
+                throw new EntityDeleteException("AcademicBuilding for deletion not found");
+            }
         }
 
         public async Task<IEnumerable<AcademicBuildingDto>> GetAll()
@@ -42,23 +47,27 @@ namespace Application.Services
         public async Task<AcademicBuildingDto?> GetById(int id)
         {
             var academicBuilding = await _academicBuildingRepository.ReadById(id);
+            if (academicBuilding == null)
+            {
+                throw new NotFoundApplicationException("AcademicBuilding not found.");
+            }
             var mappedAcademicBuilding = _mapper.Map<AcademicBuildingDto>(academicBuilding);
             return mappedAcademicBuilding;
         }
 
-        public async Task<bool> Update(AcademicBuildingDto academicBuilding)
+        public async Task Update(UpdateAcademicBuildingRequest request)
         {
-            if (academicBuilding == null)
+            var academicBuilding = new AcademicBuilding()
             {
-                return false;
-            }
-            var mappedAcademicBuilding = _mapper.Map<AcademicBuilding>(academicBuilding);
-            var existingAcademicBuilding = await _academicBuildingRepository.ReadById(academicBuilding.Id);
-            if (existingAcademicBuilding == null)
+                Id = request.Id,
+                Address = request.Address,
+                Name = request.Name
+            };
+            var res = await _academicBuildingRepository.Update(academicBuilding);
+            if (res == false)
             {
-                return false;
+                throw new EntityUpdateException("AcademicBuilding wasn't updated.");
             }
-            return await _academicBuildingRepository.Update(mappedAcademicBuilding);
         }
     }
 }
