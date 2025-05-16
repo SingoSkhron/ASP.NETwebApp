@@ -1,4 +1,6 @@
 ﻿using Application.DTOs;
+using Application.Exceptions;
+using Application.Requests;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Repositories.LessonRepository;
@@ -16,20 +18,28 @@ namespace Application.Services
             _mapper = mapper;
         }
 
-        public async Task<int> Add(LessonDto lesson)
+        public async Task<int> Add(CreateLessonRequest request)
         {
-            var mappedLesson = _mapper.Map<Lesson>(lesson);
-            if (mappedLesson != null)
+            var lesson = new Lesson()
             {
-                var mappedLessonId = await _lessonRepository.Create(mappedLesson);
-                return mappedLessonId;
-            }
-            return -1;
+                Name = request.Name,
+                LessonType = request.LessonType,
+                AuditoriumId = request.AuditoriumId,
+                BuildingId = request.BuildingId,
+                ProfessorId = request.ProfessorId,
+                GroupId = request.GroupId,
+                ScheduleItemId = request.ScheduleItemId
+            };
+            return await _lessonRepository.Create(lesson);
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task Delete(int id)
         {
-            return await _lessonRepository.Delete(id);
+            var res = await _lessonRepository.Delete(id);
+            if (res == false)
+            {
+                throw new EntityDeleteException("Lesson for deletion not found");
+            }
         }
 
         public async Task<IEnumerable<LessonDto>> GetAll()
@@ -42,23 +52,32 @@ namespace Application.Services
         public async Task<LessonDto?> GetById(int id)
         {
             var lesson = await _lessonRepository.ReadById(id);
+            if (lesson == null)
+            {
+                throw new NotFoundApplicationException("Lesson not found.");
+            }
             var mappedLesson = _mapper.Map<LessonDto>(lesson);
             return mappedLesson;
         }
 
-        public async Task<bool> Update(LessonDto lesson)
+        public async Task Update(UpdateLessonRequest request)
         {
-            if (lesson == null)
+            var lesson = new Lesson()
             {
-                return false;
-            }
-            var mappedLesson = _mapper.Map<Lesson>(lesson);
-            var existingLesson = await _lessonRepository.ReadById(lesson.Id);
-            if (existingLesson == null)
+                Id = request.Id,
+                Name = request.Name,
+                LessonType = request.LessonType,
+                AuditoriumId = request.AuditoriumId,
+                BuildingId = request.BuildingId,
+                ProfessorId = request.ProfessorId,
+                GroupId = request.GroupId,
+                ScheduleItemId = request.ScheduleItemId
+            };
+            var res = await _lessonRepository.Update(lesson);
+            if (res == false)
             {
-                return false;
+                throw new EntityUpdateException("Lesson wasn't updated.");
             }
-            return await _lessonRepository.Update(mappedLesson);
         }
     }
 }

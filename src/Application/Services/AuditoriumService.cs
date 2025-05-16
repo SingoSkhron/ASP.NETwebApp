@@ -1,4 +1,6 @@
 ﻿using Application.DTOs;
+using Application.Exceptions;
+using Application.Requests;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Repositories.AuditoriumRepository;
@@ -16,20 +18,24 @@ namespace Application.Services
             _mapper = mapper;
         }
 
-        public async Task<int> Add(AuditoriumDto auditorium)
+        public async Task<int> Add(CreateAuditoriumRequest request)
         {
-            var mappedAuditorium = _mapper.Map<Auditorium>(auditorium);
-            if (mappedAuditorium != null)
+            var auditorium = new Auditorium()
             {
-                var mappedAuditoriumId = await _auditoriumRepository.Create(mappedAuditorium);
-                return mappedAuditoriumId;
-            }
-            return -1;
+                Name = request.Name,
+                FloorNumber = request.FloorNumber,
+                BuildingId = request.BuildingId
+            };
+            return await _auditoriumRepository.Create(auditorium);
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task Delete(int id)
         {
-            return await _auditoriumRepository.Delete(id);
+            var res = await _auditoriumRepository.Delete(id);
+            if (res == false)
+            {
+                throw new EntityDeleteException("Auditorium for deletion not found");
+            }
         }
 
         public async Task<IEnumerable<AuditoriumDto>> GetAll()
@@ -42,23 +48,28 @@ namespace Application.Services
         public async Task<AuditoriumDto?> GetById(int id)
         {
             var auditorium = await _auditoriumRepository.ReadById(id);
+            if (auditorium == null)
+            {
+                throw new NotFoundApplicationException("Auditorium not found.");
+            }
             var mappedAuditorium = _mapper.Map<AuditoriumDto>(auditorium);
             return mappedAuditorium;
         }
 
-        public async Task<bool> Update(AuditoriumDto auditorium)
+        public async Task Update(UpdateAuditoriumRequest request)
         {
-            if (auditorium == null)
+            var auditorium = new Auditorium()
             {
-                return false;
-            }
-            var mappedAuditorium = _mapper.Map<Auditorium>(auditorium);
-            var existingAuditorium = await _auditoriumRepository.ReadById(auditorium.Id);
-            if (existingAuditorium == null)
+                Id = request.Id,
+                Name = request.Name,
+                FloorNumber = request.FloorNumber,
+                BuildingId = request.BuildingId
+            };
+            var res = await _auditoriumRepository.Update(auditorium);
+            if (res == false)
             {
-                return false;
+                throw new EntityUpdateException("Auditorium wasn't updated.");
             }
-            return await _auditoriumRepository.Update(mappedAuditorium);
         }
     }
 }

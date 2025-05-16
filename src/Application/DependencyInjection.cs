@@ -1,6 +1,9 @@
 ﻿using Application.Mappings;
 using Application.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Application
 {
@@ -15,6 +18,10 @@ namespace Application
             services.AddTransient<ILessonService, LessonService>();
             services.AddTransient<IScheduleItemsService, ScheduleItemsService>();
             services.AddTransient<IUserService, UserService>();
+
+            services.AddFluentValidationAutoValidation();
+            services.AddFluentValidationClientsideAdapters();
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             return services;
         }
     }

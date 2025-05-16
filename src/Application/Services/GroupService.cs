@@ -1,4 +1,6 @@
 ﻿using Application.DTOs;
+using Application.Exceptions;
+using Application.Requests;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Repositories.GroupRepository;
@@ -16,20 +18,25 @@ namespace Application.Services
             _mapper = mapper;
         }
 
-        public async Task<int> Add(GroupDto group)
+        public async Task<int> Add(CreateGroupRequest request)
         {
-            var mappedGroup = _mapper.Map<Group>(group);
-            if (mappedGroup != null)
+            var group = new Group()
             {
-                var mappedGroupId = await _groupRepository.Create(mappedGroup);
-                return mappedGroupId;
-            }
-            return -1;
+                GroupName = request.GroupName,
+                EducationLevel = request.EducationLevel,
+                EducationForm = request.EducationForm,
+                AdmissionYear = request.AdmissionYear
+            };
+            return await _groupRepository.Create(group);
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task Delete(int id)
         {
-            return await _groupRepository.Delete(id);
+            var res = await _groupRepository.Delete(id);
+            if (res == false)
+            {
+                throw new EntityDeleteException("Group for deletion not found");
+            }
         }
 
         public async Task<IEnumerable<GroupDto>> GetAll()
@@ -42,23 +49,29 @@ namespace Application.Services
         public async Task<GroupDto?> GetById(int id)
         {
             var group = await _groupRepository.ReadById(id);
+            if (group == null)
+            {
+                throw new NotFoundApplicationException("Group not found.");
+            }
             var mappedGroup = _mapper.Map<GroupDto>(group);
             return mappedGroup;
         }
 
-        public async Task<bool> Update(GroupDto group)
+        public async Task Update(UpdateGroupRequest request)
         {
-            if (group == null)
+            var group = new Group()
             {
-                return false;
-            }
-            var mappedGroup = _mapper.Map<Group>(group);
-            var existingGroup = await _groupRepository.ReadById(group.Id);
-            if (existingGroup == null)
+                Id = request.Id,
+                GroupName = request.GroupName,
+                EducationLevel = request.EducationLevel,
+                EducationForm = request.EducationForm,
+                AdmissionYear = request.AdmissionYear
+            };
+            var res = await _groupRepository.Update(group);
+            if (res == false)
             {
-                return false;
+                throw new EntityUpdateException("Group wasn't updated.");
             }
-            return await _groupRepository.Update(mappedGroup);
         }
     }
 }

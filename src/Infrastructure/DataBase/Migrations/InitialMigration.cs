@@ -23,16 +23,16 @@ namespace Infrastructure.DataBase.Migrations
             Create.Table("group")
                 .WithColumn("id").AsInt32().PrimaryKey().Identity()
                 .WithColumn("group_name").AsString(50).NotNullable()
-                .WithColumn("education_level").AsString(50).WithDefaultValue("Baccalaureate")
-                .WithColumn("education_form").AsString(50).WithDefaultValue("FullTime")
+                .WithColumn("education_level").AsString(50)
+                .WithColumn("education_form").AsString(50)
                 .WithColumn("admission_year").AsInt32().NotNullable();
 
             Create.Table("schedule_item")
                 .WithColumn("id").AsInt32().PrimaryKey().Identity()
                 .WithColumn("order_number").AsInt32().NotNullable().WithDefaultValue(1)
                 .WithColumn("day_of_the_week").AsInt32().NotNullable()
-                .WithColumn("start_time").AsTime().NotNullable()
-                .WithColumn("end_time").AsTime().NotNullable()
+                .WithColumn("start_time").AsString(50).NotNullable()
+                .WithColumn("end_time").AsString(50).NotNullable()
                 .WithColumn("building_id").AsInt32().ForeignKey("academic_building", "id").NotNullable();
 
             Create.Table("user")
@@ -79,8 +79,8 @@ namespace Infrastructure.DataBase.Migrations
                 {
                     order_number = 1,
                     day_of_the_week = 1,
-                    start_time = new TimeSpan(9, 0, 0),
-                    end_time = new TimeSpan(10, 30, 0),
+                    start_time = new TimeOnly(9, 0).ToString(),
+                    end_time = new TimeOnly(10, 30, 0).ToString(),
                     building_id = 1
                 });
             Insert.IntoTable("user")

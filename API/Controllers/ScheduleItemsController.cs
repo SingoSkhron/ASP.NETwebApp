@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.Requests;
 using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,10 +19,6 @@ namespace API.Controllers
         public async Task<IActionResult> GetById([FromQuery] int id)
         {
             var scheduleItem = await _scheduleItemsService.GetById(id);
-            if (scheduleItem == null)
-            {
-                return NotFound();
-            }
             return Ok(scheduleItem);
         }
 
@@ -34,36 +30,24 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] ScheduleItemsDto scheduleItems)
+        public async Task<IActionResult> Add([FromBody] CreateScheduleItemRequest request)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            var scheduleItemId = await _scheduleItemsService.Add(scheduleItems);
+            var scheduleItemId = await _scheduleItemsService.Add(request);
             var res = new { Id = scheduleItemId };
             return CreatedAtAction(nameof(GetById), new { id = scheduleItemId }, res);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] ScheduleItemsDto scheduleItems)
+        public async Task<IActionResult> Update([FromBody] UpdateScheduleItemRequest request)
         {
-            var result = await _scheduleItemsService.Update(scheduleItems);
-            if (!result)
-            {
-                return NotFound();
-            }
-            return Ok(result);
+            await _scheduleItemsService.Update(request);
+            return Ok();
         }
 
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] int id)
         {
-            var result = await _scheduleItemsService.Delete(id);
-            if (!result)
-            {
-                return NotFound();
-            }
+            await _scheduleItemsService.Delete(id);
             return NoContent();
         }
     }

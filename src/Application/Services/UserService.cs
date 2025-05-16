@@ -1,4 +1,6 @@
 ﻿using Application.DTOs;
+using Application.Exceptions;
+using Application.Requests;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Repositories.UserRepository;
@@ -16,20 +18,26 @@ namespace Application.Services
             _mapper = mapper;
         }
 
-        public async Task<int> Add(UserDto user)
+        public async Task<int> Add(CreateUserRequest request)
         {
-            var mappedUser = _mapper.Map<User>(user);
-            if (mappedUser != null)
+            var user = new User()
             {
-                var mappedUserId = await _userRepository.Create(mappedUser);
-                return mappedUserId;
-            }
-            return -1;
+                Type = request.Type,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                AdmissionYear = request.AdmissionYear,
+                GroupId = request.GroupId
+            };
+            return await _userRepository.Create(user);
         }
 
-        public async Task<bool> Delete(int id)
+        public async Task Delete(int id)
         {
-            return await _userRepository.Delete(id);
+            var res = await _userRepository.Delete(id);
+            if (res == false)
+            {
+                throw new EntityDeleteException("User for deletion not found");
+            }
         }
 
         public async Task<IEnumerable<UserDto>> GetAll()
@@ -42,23 +50,30 @@ namespace Application.Services
         public async Task<UserDto?> GetById(int id)
         {
             var user = await _userRepository.ReadById(id);
+            if (user == null)
+            {
+                throw new NotFoundApplicationException("User not found.");
+            }
             var mappedUser = _mapper.Map<UserDto>(user);
             return mappedUser;
         }
 
-        public async Task<bool> Update(UserDto user)
+        public async Task Update(UpdateUserRequest request)
         {
-            if (user == null)
+            var user = new User()
             {
-                return false;
-            }
-            var mappedUser = _mapper.Map<User>(user);
-            var existingUser = await _userRepository.ReadById(user.Id);
-            if (existingUser == null)
+                Id = request.Id,
+                Type = request.Type,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                AdmissionYear = request.AdmissionYear,
+                GroupId = request.GroupId
+            };
+            var res = await _userRepository.Update(user);
+            if (res == false)
             {
-                return false;
+                throw new EntityUpdateException("User wasn't updated.");
             }
-            return await _userRepository.Update(mappedUser);
         }
     }
 }
