@@ -63,8 +63,8 @@ namespace Infrastructure.Repositories.ScheduleItemsRepository
                 scheduleItem.Id = i + 1;
                 scheduleItem.OrderNumber = i + 1;
                 scheduleItem.DayOfTheWeek = i + 1;
-                scheduleItem.StartTime = new TimeOnly(9 + i, 0 + i * 30);
-                scheduleItem.EndTime = new TimeOnly(10 + i, 30 + i * 30);
+                scheduleItem.StartTime = new TimeSpan(9 + i, 0 + i * 30, 0);
+                scheduleItem.EndTime = new TimeSpan(10 + i, 30 + i * 30, 0);
                 scheduleItem.BuildingId = i + 1;
                 scheduleItems.Add(scheduleItem);
             }
