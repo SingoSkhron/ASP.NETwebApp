@@ -7,6 +7,7 @@ namespace Application.Requests
         public string Address { get; set; }
         public string Name { get; set; }
     }
+
     public class CreateAcademicBuildingRequestValidator : AbstractValidator<CreateAcademicBuildingRequest>
     {
         public CreateAcademicBuildingRequestValidator()

@@ -13,17 +13,18 @@ namespace Application.Requests
         public int GroupId { get; set; }
         public int ScheduleItemId { get; set; }
     }
+
     public class CreateLessonRequestValidator : AbstractValidator<CreateLessonRequest>
     {
         public CreateLessonRequestValidator()
         {
             RuleFor(x => x.Name).NotEmpty().MaximumLength(ValidationConstants.MaxLessonNameLength);
             RuleFor(x => x.LessonType).NotEmpty().IsInEnum();
-            RuleFor(x => x.AuditoriumId).NotEmpty().ExclusiveBetween(0, int.MaxValue);
-            RuleFor(x => x.BuildingId).NotEmpty().ExclusiveBetween(0, int.MaxValue);
-            RuleFor(x => x.ProfessorId).NotEmpty().ExclusiveBetween(0, int.MaxValue);
-            RuleFor(x => x.GroupId).NotEmpty().ExclusiveBetween(0, int.MaxValue);
-            RuleFor(x => x.ScheduleItemId).NotEmpty().ExclusiveBetween(0, int.MaxValue);
+            RuleFor(x => x.AuditoriumId).NotEmpty().GreaterThan(0);
+            RuleFor(x => x.BuildingId).NotEmpty().GreaterThan(0);
+            RuleFor(x => x.ProfessorId).NotEmpty().GreaterThan(0);
+            RuleFor(x => x.GroupId).NotEmpty().GreaterThan(0);
+            RuleFor(x => x.ScheduleItemId).NotEmpty().GreaterThan(0);
         }
     }
 }

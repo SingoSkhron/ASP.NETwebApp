@@ -31,8 +31,8 @@ namespace Infrastructure.DataBase.Migrations
                 .WithColumn("id").AsInt32().PrimaryKey().Identity()
                 .WithColumn("order_number").AsInt32().NotNullable().WithDefaultValue(1)
                 .WithColumn("day_of_the_week").AsInt32().NotNullable()
-                .WithColumn("start_time").AsTime().NotNullable()
-                .WithColumn("end_time").AsTime().NotNullable()
+                .WithColumn("start_time").AsCustom("Time").NotNullable()
+                .WithColumn("end_time").AsCustom("Time").NotNullable()
                 .WithColumn("building_id").AsInt32().ForeignKey("academic_buildings", "id").NotNullable();
 
             Create.Table("users")

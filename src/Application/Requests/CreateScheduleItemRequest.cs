@@ -10,15 +10,17 @@ namespace Application.Requests
         public TimeSpan EndTime { get; set; }
         public int BuildingId { get; set; }
     }
+
     public class CreateScheduleItemRequestValidator : AbstractValidator<CreateScheduleItemRequest>
     {
         public CreateScheduleItemRequestValidator()
         {
-            RuleFor(x => x.OrderNumber).NotEmpty().ExclusiveBetween(0, 8);
-            RuleFor(x => x.DayOfTheWeek).NotEmpty().ExclusiveBetween(0, 8);
+            RuleFor(x => x.OrderNumber).NotEmpty().InclusiveBetween(ValidationConstants.MinOrderNumber, ValidationConstants.MaxOrderNumber);
+            RuleFor(x => x.DayOfTheWeek).NotEmpty().InclusiveBetween(ValidationConstants.MinDayOfTheWeek, ValidationConstants.MaxDayOfTheWeek);
             RuleFor(x => x.StartTime).NotEmpty().GreaterThanOrEqualTo(new TimeSpan(8, 0, 0)).LessThanOrEqualTo(new TimeSpan(21, 0, 0));
             RuleFor(x => x.EndTime).NotEmpty().GreaterThanOrEqualTo(new TimeSpan(9, 0, 0)).LessThanOrEqualTo(new TimeSpan(22, 0, 0));
-            RuleFor(x => x.BuildingId).NotEmpty().ExclusiveBetween(0, int.MaxValue);
+            RuleFor(x => x).Must(x => x.StartTime < x.EndTime).WithMessage("StartTime must be earlier than EndTime.");
+            RuleFor(x => x.BuildingId).NotEmpty().GreaterThan(0);
         }
     }
 }

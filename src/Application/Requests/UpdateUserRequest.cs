@@ -12,16 +12,17 @@ namespace Application.Requests
         public int? AdmissionYear { get; set; }
         public int? GroupId { get; set; }
     }
+
     public class UpdateUserRequestValidator : AbstractValidator<UpdateUserRequest>
     {
         public UpdateUserRequestValidator()
         {
-            RuleFor(x => x.Id).NotEmpty().ExclusiveBetween(0, int.MaxValue);
+            RuleFor(x => x.Id).NotEmpty().GreaterThan(0);
             RuleFor(x => x.Type).NotEmpty().IsInEnum();
             RuleFor(x => x.FirstName).NotEmpty().MaximumLength(ValidationConstants.MaxUserNameLength);
             RuleFor(x => x.LastName).NotEmpty().MaximumLength(ValidationConstants.MaxUserNameLength);
-            RuleFor(x => x.AdmissionYear).ExclusiveBetween(1950, int.MaxValue);
-            RuleFor(x => x.GroupId).ExclusiveBetween(0, int.MaxValue);
+            RuleFor(x => x.AdmissionYear).ExclusiveBetween(1950, DateTime.Now.Year);
+            RuleFor(x => x.GroupId).GreaterThan(0);
         }
     }
 }

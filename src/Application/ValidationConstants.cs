@@ -8,5 +8,9 @@
         public const int MaxGroupNameLength = 20;
         public const int MaxLessonNameLength = 60;
         public const int MaxUserNameLength = 50;
+        public const int MaxOrderNumber = 7;
+        public const int MinOrderNumber = 1;
+        public const int MaxDayOfTheWeek = 7;
+        public const int MinDayOfTheWeek = 1;
     }
 }
