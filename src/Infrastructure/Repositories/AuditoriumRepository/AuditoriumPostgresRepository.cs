@@ -16,7 +16,7 @@ namespace Infrastructure.Repositories.AuditoriumRepository
         public async Task<int> Create(Auditorium auditorium)
         {
             var auditoriumId = await _connection.QuerySingleAsync<int>(
-                @"INSERT INTO auditorium (name, floor_number, building_id) VALUES (@Name, @FloorNumber, @BuildingId)
+                @"INSERT INTO auditoriums (name, floor_number, building_id) VALUES (@Name, @FloorNumber, @BuildingId)
                 RETURNING id", new { auditorium.Name, auditorium.FloorNumber, auditorium.BuildingId });
 
             return auditoriumId;
@@ -25,7 +25,7 @@ namespace Infrastructure.Repositories.AuditoriumRepository
         public async Task<bool> Delete(int id)
         {
             var affectedRows = await _connection.ExecuteAsync(
-                @"DELETE FROM auditorium WHERE id = @Id", new { Id = id });
+                @"DELETE FROM auditoriums WHERE id = @Id", new { Id = id });
 
             return affectedRows > 0;
         }
@@ -33,7 +33,7 @@ namespace Infrastructure.Repositories.AuditoriumRepository
         public async Task<IEnumerable<Auditorium>> ReadAll()
         {
             var auditoriums = await _connection.QueryAsync<Auditorium>(
-                @"SELECT id, name, floor_number, building_id FROM auditorium");
+                @"SELECT id, name, floor_number, building_id FROM auditoriums");
 
             return auditoriums.ToList();
         }
@@ -41,7 +41,7 @@ namespace Infrastructure.Repositories.AuditoriumRepository
         public async Task<Auditorium?> ReadById(int id)
         {
             var auditorium = await _connection.QueryFirstOrDefaultAsync<Auditorium>(
-                @"SELECT name, floor_number, building_id FROM auditorium WHERE id = @Id", new { Id = id });
+                @"SELECT name, floor_number, building_id FROM auditoriums WHERE id = @Id", new { Id = id });
 
             return auditorium;
         }
@@ -49,7 +49,7 @@ namespace Infrastructure.Repositories.AuditoriumRepository
         public async Task<bool> Update(Auditorium auditorium)
         {
             var affectedRows = await _connection.ExecuteAsync(
-                @"UPDATE auditorium
+                @"UPDATE auditoriums
                 SET name = @Name, floor_number = @FloorNumber, building_id = @BuildingId
                 WHERE id = @Id", auditorium);
 

@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.Requests;
 using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,10 +19,6 @@ namespace API.Controllers
         public async Task<IActionResult> GetById([FromQuery] int id)
         {
             var academicBuilding = await _academicBuildingService.GetById(id);
-            if (academicBuilding == null)
-            {
-                return NotFound();
-            }
             return Ok(academicBuilding);
         }
 
@@ -34,36 +30,24 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] AcademicBuildingDto academicBuilding)
+        public async Task<IActionResult> Add([FromBody] CreateAcademicBuildingRequest request)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            var academicBuildingId = await _academicBuildingService.Add(academicBuilding);
+            var academicBuildingId = await _academicBuildingService.Add(request);
             var res = new { Id = academicBuildingId };
             return CreatedAtAction(nameof(GetById), new { id = academicBuildingId }, res);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] AcademicBuildingDto academicBuilding)
+        public async Task<IActionResult> Update([FromBody] UpdateAcademicBuildingRequest request)
         {
-            var result = await _academicBuildingService.Update(academicBuilding);
-            if (!result)
-            {
-                return NotFound();
-            }
-            return Ok(result);
+            await _academicBuildingService.Update(request);
+            return Ok();
         }
 
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] int id)
         {
-            var result = await _academicBuildingService.Delete(id);
-            if (!result)
-            {
-                return NotFound();
-            }
+            await _academicBuildingService.Delete(id);
             return NoContent();
         }
     }

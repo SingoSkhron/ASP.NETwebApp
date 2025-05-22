@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.Requests;
 using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,10 +19,6 @@ namespace API.Controllers
         public async Task<IActionResult> GetById([FromQuery] int id)
         {
             var group = await _groupService.GetById(id);
-            if (group == null)
-            {
-                return NotFound();
-            }
             return Ok(group);
         }
 
@@ -34,36 +30,24 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] GroupDto group)
+        public async Task<IActionResult> Add([FromBody] CreateGroupRequest request)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            var groupId = await _groupService.Add(group);
+            var groupId = await _groupService.Add(request);
             var res = new { Id = groupId };
             return CreatedAtAction(nameof(GetById), new { id = groupId }, res);
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] GroupDto group)
+        public async Task<IActionResult> Update([FromBody] UpdateGroupRequest request)
         {
-            var result = await _groupService.Update(group);
-            if (!result)
-            {
-                return NotFound();
-            }
-            return Ok(result);
+            await _groupService.Update(request);
+            return Ok();
         }
 
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] int id)
         {
-            var result = await _groupService.Delete(id);
-            if (!result)
-            {
-                return NotFound();
-            }
+            await _groupService.Delete(id);
             return NoContent();
         }
     }
