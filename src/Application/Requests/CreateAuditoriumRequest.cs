@@ -14,7 +14,7 @@ namespace Application.Requests
         public CreateAuditoriumRequestValidator()
         {
             RuleFor(x => x.Name).NotEmpty().MaximumLength(ValidationConstants.MaxAuditoriumNameLength);
-            RuleFor(x => x.FloorNumber).NotEmpty().InclusiveBetween(-500, 500);
+            RuleFor(x => x.FloorNumber).NotEmpty().InclusiveBetween(-10, 50);
             RuleFor(x => x.BuildingId).NotEmpty().GreaterThan(0);
         }
     }
