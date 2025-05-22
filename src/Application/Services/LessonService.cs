@@ -4,6 +4,7 @@ using Application.Requests;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Repositories.LessonRepository;
+using Microsoft.Extensions.Logging;
 
 namespace Application.Services
 {
@@ -11,11 +12,13 @@ namespace Application.Services
     {
         private readonly ILessonRepository _lessonRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger<LessonService> _logger;
 
-        public LessonService(ILessonRepository lessonRepository, IMapper mapper)
+        public LessonService(ILessonRepository lessonRepository, IMapper mapper, ILogger<LessonService> logger)
         {
             _lessonRepository = lessonRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<int> Add(CreateLessonRequest request)
@@ -30,7 +33,9 @@ namespace Application.Services
                 GroupId = request.GroupId,
                 ScheduleItemId = request.ScheduleItemId
             };
-            return await _lessonRepository.Create(lesson);
+            var res = await _lessonRepository.Create(lesson);
+            _logger.LogInformation(@"Lesson with ID = {0} was created.", res);
+            return res;
         }
 
         public async Task Delete(int id)
@@ -40,6 +45,7 @@ namespace Application.Services
             {
                 throw new EntityDeleteException("Lesson for deletion not found");
             }
+            _logger.LogInformation(@"Lesson with ID = {0} was deleted.", id);
         }
 
         public async Task<IEnumerable<LessonDto>> GetAll()
@@ -78,6 +84,7 @@ namespace Application.Services
             {
                 throw new EntityUpdateException("Lesson wasn't updated.");
             }
+            _logger.LogInformation(@"Lesson with ID = {0} was updated.", lesson.Id);
         }
     }
 }

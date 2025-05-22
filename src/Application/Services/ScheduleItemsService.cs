@@ -4,6 +4,7 @@ using Application.Requests;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Repositories.ScheduleItemsRepository;
+using Microsoft.Extensions.Logging;
 
 namespace Application.Services
 {
@@ -11,11 +12,13 @@ namespace Application.Services
     {
         private readonly IScheduleItemsRepository _scheduleItemsRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger<ScheduleItemsService> _logger;
 
-        public ScheduleItemsService(IScheduleItemsRepository scheduleItemsRepository, IMapper mapper)
+        public ScheduleItemsService(IScheduleItemsRepository scheduleItemsRepository, IMapper mapper, ILogger<ScheduleItemsService> logger)
         {
             _scheduleItemsRepository = scheduleItemsRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<int> Add(CreateScheduleItemRequest request)
@@ -28,7 +31,9 @@ namespace Application.Services
                 EndTime = request.EndTime,
                 BuildingId = request.BuildingId
             };
-            return await _scheduleItemsRepository.Create(scheduleItems);
+            var res = await _scheduleItemsRepository.Create(scheduleItems);
+            _logger.LogInformation(@"ScheduleItem with ID = {0} was created.", res);
+            return res;
         }
 
         public async Task Delete(int id)
@@ -38,6 +43,7 @@ namespace Application.Services
             {
                 throw new EntityDeleteException("ScheduleItem for deletion not found");
             }
+            _logger.LogInformation(@"ScheduleItem with ID = {0} was deleted.", id);
         }
 
         public async Task<IEnumerable<ScheduleItemsDto>> GetAll()
@@ -74,6 +80,7 @@ namespace Application.Services
             {
                 throw new EntityUpdateException("ScheduleItem wasn't updated.");
             }
+            _logger.LogInformation(@"ScheduleItem with ID = {0} was updated.", scheduleItem.Id);
         }
     }
 }

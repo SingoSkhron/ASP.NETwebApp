@@ -4,6 +4,7 @@ using Application.Requests;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Repositories.GroupRepository;
+using Microsoft.Extensions.Logging;
 
 namespace Application.Services
 {
@@ -11,11 +12,13 @@ namespace Application.Services
     {
         private readonly IGroupRepository _groupRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger<GroupService> _logger;
 
-        public GroupService(IGroupRepository groupRepository, IMapper mapper)
+        public GroupService(IGroupRepository groupRepository, IMapper mapper, ILogger<GroupService> logger)
         {
             _groupRepository = groupRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<int> Add(CreateGroupRequest request)
@@ -27,7 +30,9 @@ namespace Application.Services
                 EducationForm = request.EducationForm,
                 AdmissionYear = request.AdmissionYear
             };
-            return await _groupRepository.Create(group);
+            var res = await _groupRepository.Create(group);
+            _logger.LogInformation(@"Group with ID = {0} was created.", res);
+            return res;
         }
 
         public async Task Delete(int id)
@@ -37,6 +42,7 @@ namespace Application.Services
             {
                 throw new EntityDeleteException("Group for deletion not found");
             }
+            _logger.LogInformation(@"Group with ID = {0} was deleted.", id);
         }
 
         public async Task<IEnumerable<GroupDto>> GetAll()
@@ -72,6 +78,7 @@ namespace Application.Services
             {
                 throw new EntityUpdateException("Group wasn't updated.");
             }
+            _logger.LogInformation(@"Group with ID = {0} was updated.", group.Id);
         }
     }
 }

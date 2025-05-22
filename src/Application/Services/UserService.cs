@@ -4,6 +4,7 @@ using Application.Requests;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Repositories.UserRepository;
+using Microsoft.Extensions.Logging;
 
 namespace Application.Services
 {
@@ -11,11 +12,13 @@ namespace Application.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger<UserService> _logger;
 
-        public UserService(IUserRepository userRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IMapper mapper, ILogger<UserService> logger)
         {
             _userRepository = userRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<int> Add(CreateUserRequest request)
@@ -28,7 +31,9 @@ namespace Application.Services
                 AdmissionYear = request.AdmissionYear,
                 GroupId = request.GroupId
             };
-            return await _userRepository.Create(user);
+            var res = await _userRepository.Create(user);
+            _logger.LogInformation(@"User with ID = {0} was created.", res);
+            return res;
         }
 
         public async Task Delete(int id)
@@ -38,6 +43,7 @@ namespace Application.Services
             {
                 throw new EntityDeleteException("User for deletion not found");
             }
+            _logger.LogInformation(@"User with ID = {0} was deleted.", id);
         }
 
         public async Task<IEnumerable<UserDto>> GetAll()
@@ -74,6 +80,7 @@ namespace Application.Services
             {
                 throw new EntityUpdateException("User wasn't updated.");
             }
+            _logger.LogInformation(@"User with ID = {0} was updated.", user.Id);
         }
     }
 }

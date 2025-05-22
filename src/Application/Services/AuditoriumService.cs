@@ -4,6 +4,7 @@ using Application.Requests;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Repositories.AuditoriumRepository;
+using Microsoft.Extensions.Logging;
 
 namespace Application.Services
 {
@@ -11,11 +12,13 @@ namespace Application.Services
     {
         private readonly IAuditoriumRepository _auditoriumRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger<AuditoriumService> _logger;
 
-        public AuditoriumService(IAuditoriumRepository auditoriumRepository, IMapper mapper)
+        public AuditoriumService(IAuditoriumRepository auditoriumRepository, IMapper mapper, ILogger<AuditoriumService> logger)
         {
             _auditoriumRepository = auditoriumRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<int> Add(CreateAuditoriumRequest request)
@@ -26,7 +29,9 @@ namespace Application.Services
                 FloorNumber = request.FloorNumber,
                 BuildingId = request.BuildingId
             };
-            return await _auditoriumRepository.Create(auditorium);
+            var res = await _auditoriumRepository.Create(auditorium);
+            _logger.LogInformation(@"Auditorium with ID = {0} was created.", res);
+            return res;
         }
 
         public async Task Delete(int id)
@@ -36,6 +41,7 @@ namespace Application.Services
             {
                 throw new EntityDeleteException("Auditorium for deletion not found");
             }
+            _logger.LogInformation(@"Auditorium with ID = {0} was deleted.", id);
         }
 
         public async Task<IEnumerable<AuditoriumDto>> GetAll()
@@ -70,6 +76,7 @@ namespace Application.Services
             {
                 throw new EntityUpdateException("Auditorium wasn't updated.");
             }
+            _logger.LogInformation(@"Auditorium with ID = {0} was updated.", auditorium.Id);
         }
     }
 }

@@ -2,10 +2,28 @@ using API.ExceptionHandlers;
 using Application;
 using Infrastructure;
 using Infrastructure.DataBase;
+using Serilog;
+using API.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var logpattern = @"{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} 
+[{Level:u3] [ClientIp = {ClientIp}] {Message:lj} {NewLine} {Exception}";
 
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Debug()
+    .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
+    .Enrich.WithClientIp()
+    .WriteTo.Console(outputTemplate: logpattern)
+    .WriteTo.File(Path.Combine("logs", "schedule-backend-.log"),
+        rollingInterval: RollingInterval.Day,
+        retainedFileCountLimit: 7,
+        rollOnFileSizeLimit: true,
+        outputTemplate: logpattern)
+    .CreateLogger();
+
+// Add services to the container.
+builder.Services.AddSerilog();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -26,12 +44,17 @@ using (var scope = app.Services.CreateScope())
     var migrationRunner = scope.ServiceProvider.GetRequiredService<MigrationRunner>();
     migrationRunner.Run();
 }
+
+app.UseMiddleware<PerformanceMiddleware>(TimeSpan.FromMilliseconds(1000));
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSerilogRequestLogging();
 
 app.UseExceptionHandler();
 
