@@ -4,6 +4,7 @@ using Application.Requests;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Repositories.AcademicBuildingRepository;
+using Microsoft.Extensions.Logging;
 
 namespace Application.Services
 {
@@ -11,11 +12,13 @@ namespace Application.Services
     {
         private readonly IAcademicBuildingRepository _academicBuildingRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger<AcademicBuildingService> _logger;
 
-        public AcademicBuildingService(IAcademicBuildingRepository academicBuildingRepository, IMapper mapper)
+        public AcademicBuildingService(IAcademicBuildingRepository academicBuildingRepository, IMapper mapper, ILogger<AcademicBuildingService> logger)
         {
             _academicBuildingRepository = academicBuildingRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<int> Add(CreateAcademicBuildingRequest request)
@@ -25,7 +28,9 @@ namespace Application.Services
                 Address = request.Address,
                 Name = request.Name
             };
-            return await _academicBuildingRepository.Create(academicBuilding);
+            var res = await _academicBuildingRepository.Create(academicBuilding);
+            _logger.LogInformation(@"AcademicBuilding with ID = {0} was created.", res);
+            return res;
         }
 
         public async Task Delete(int id)
@@ -35,6 +40,7 @@ namespace Application.Services
             {
                 throw new EntityDeleteException("AcademicBuilding for deletion not found");
             }
+            _logger.LogInformation(@"AcademicBuilding with ID = {0} was deleted.", id);
         }
 
         public async Task<IEnumerable<AcademicBuildingDto>> GetAll()
@@ -68,6 +74,7 @@ namespace Application.Services
             {
                 throw new EntityUpdateException("AcademicBuilding wasn't updated.");
             }
+            _logger.LogInformation(@"AcademicBuilding with ID = {0} was updated.", academicBuilding.Id);
         }
     }
 }
